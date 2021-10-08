@@ -14,6 +14,9 @@
 		EDB6402D2710D6210062777F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402C2710D6210062777F /* MainView.swift */; };
 		EDB640302710D63A0062777F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402F2710D63A0062777F /* QuizView.swift */; };
 		EDB640322710D6470062777F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640312710D6470062777F /* ProfileView.swift */; };
+		EDB640342710DFA10062777F /* GreetingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640332710DFA10062777F /* GreetingsHeaderView.swift */; };
+		EDB640362710E4890062777F /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640352710E4890062777F /* CornerRadiusStyle.swift */; };
+		EDB6403A2710EAC10062777F /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640392710EAC10062777F /* CircleProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		EDB6402C2710D6210062777F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EDB6402F2710D63A0062777F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		EDB640312710D6470062777F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EDB640332710DFA10062777F /* GreetingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsHeaderView.swift; sourceTree = "<group>"; };
+		EDB640352710E4890062777F /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
+		EDB640392710EAC10062777F /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				886F96012710836C0019FE40 /* HackathonAppApp.swift */,
+				EDB640372710E4910062777F /* Utils */,
 				EDB6402E2710D6260062777F /* View */,
 				886F96052710836D0019FE40 /* Assets.xcassets */,
 				886F96072710836D0019FE40 /* Preview Content */,
@@ -77,11 +84,29 @@
 			isa = PBXGroup;
 			children = (
 				886F96032710836C0019FE40 /* ContentView.swift */,
-				EDB6402C2710D6210062777F /* MainView.swift */,
+				EDB640382710EAB20062777F /* Main */,
 				EDB6402F2710D63A0062777F /* QuizView.swift */,
 				EDB640312710D6470062777F /* ProfileView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EDB640372710E4910062777F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EDB640352710E4890062777F /* CornerRadiusStyle.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EDB640382710EAB20062777F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EDB6402C2710D6210062777F /* MainView.swift */,
+				EDB640392710EAC10062777F /* CircleProgressBar.swift */,
+				EDB640332710DFA10062777F /* GreetingsHeaderView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +183,9 @@
 				EDB640302710D63A0062777F /* QuizView.swift in Sources */,
 				EDB640322710D6470062777F /* ProfileView.swift in Sources */,
 				EDB6402D2710D6210062777F /* MainView.swift in Sources */,
+				EDB640362710E4890062777F /* CornerRadiusStyle.swift in Sources */,
+				EDB640342710DFA10062777F /* GreetingsHeaderView.swift in Sources */,
+				EDB6403A2710EAC10062777F /* CircleProgressBar.swift in Sources */,
 				886F96022710836C0019FE40 /* HackathonAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
