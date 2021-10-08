@@ -18,7 +18,7 @@ struct CircleProgressBar: View {
                     )
                 )
                 .opacity(1)
-                .foregroundColor(Color("blue_60"))
+                .foregroundColor(Color("blue_5"))
                 .frame(width: 44, height: 44)
                 .rotationEffect(Angle(degrees: 270.0))
         }

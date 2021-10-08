@@ -4,7 +4,7 @@ struct GreetingsHeaderView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .center) {
-                Color("blue_30")
+                Color("blue_2")
                     .cornerRadius(radius: 35, corners: [.bottomLeft, .bottomRight])
                     .ignoresSafeArea(edges: .top)
                 VStack(spacing: 2) {
