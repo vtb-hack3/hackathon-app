@@ -5,6 +5,8 @@ struct MainView: View {
         VStack {
             GreetingsHeaderView()
                 .frame(height: 190)
+            StoriesView()
+                .offset(x: 0, y: -40)
             Color.white
         }
     }

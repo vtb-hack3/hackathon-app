@@ -32,7 +32,6 @@ struct GreetingsHeaderView: View {
     }
 }
 
-
 struct GreetingsHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         GreetingsHeaderView()

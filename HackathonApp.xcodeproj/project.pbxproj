@@ -17,6 +17,8 @@
 		EDB640342710DFA10062777F /* GreetingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640332710DFA10062777F /* GreetingsHeaderView.swift */; };
 		EDB640362710E4890062777F /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640352710E4890062777F /* CornerRadiusStyle.swift */; };
 		EDB6403A2710EAC10062777F /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640392710EAC10062777F /* CircleProgressBar.swift */; };
+		EDB6403E2710EF9D0062777F /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6403D2710EF9D0062777F /* StoriesView.swift */; };
+		EDB640402710EFC40062777F /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6403F2710EFC40062777F /* StoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		EDB640332710DFA10062777F /* GreetingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsHeaderView.swift; sourceTree = "<group>"; };
 		EDB640352710E4890062777F /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		EDB640392710EAC10062777F /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
+		EDB6403D2710EF9D0062777F /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
+		EDB6403F2710EFC40062777F /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +107,44 @@
 			isa = PBXGroup;
 			children = (
 				EDB6402C2710D6210062777F /* MainView.swift */,
+				EDB6403C2710EF7E0062777F /* Views */,
+				EDB6403B2710EF5A0062777F /* Sections */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EDB6403B2710EF5A0062777F /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				EDB640412710EFFE0062777F /* GreetingsHeader */,
+				EDB640422710F0080062777F /* Stories */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		EDB6403C2710EF7E0062777F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDB640412710EFFE0062777F /* GreetingsHeader */ = {
+			isa = PBXGroup;
+			children = (
 				EDB640392710EAC10062777F /* CircleProgressBar.swift */,
 				EDB640332710DFA10062777F /* GreetingsHeaderView.swift */,
 			);
-			path = Main;
+			path = GreetingsHeader;
+			sourceTree = "<group>";
+		};
+		EDB640422710F0080062777F /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				EDB6403F2710EFC40062777F /* StoryView.swift */,
+				EDB6403D2710EF9D0062777F /* StoriesView.swift */,
+			);
+			path = Stories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB640402710EFC40062777F /* StoryView.swift in Sources */,
 				886F96042710836C0019FE40 /* ContentView.swift in Sources */,
 				EDB640302710D63A0062777F /* QuizView.swift in Sources */,
+				EDB6403E2710EF9D0062777F /* StoriesView.swift in Sources */,
 				EDB640322710D6470062777F /* ProfileView.swift in Sources */,
 				EDB6402D2710D6210062777F /* MainView.swift in Sources */,
 				EDB640362710E4890062777F /* CornerRadiusStyle.swift in Sources */,

@@ -24,3 +24,10 @@ struct CircleProgressBar: View {
         }
     }
 }
+
+struct CircleProgressBar_Previews: PreviewProvider {
+    static var previews: some View {
+        CircleProgressBar()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 13 Pro Max"))
+    }
+}
