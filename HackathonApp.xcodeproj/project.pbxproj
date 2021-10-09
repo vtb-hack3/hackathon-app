@@ -53,6 +53,7 @@
 		EDB640482711F6F50062777F /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640472711F6F50062777F /* OutgoingMessage.swift */; };
 		EDB6404A2711F79B0062777F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640492711F79B0062777F /* WebSocketService.swift */; };
 		EDB6404C2711FA2F0062777F /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6404B2711FA2F0062777F /* QuizViewModel.swift */; };
+		EDB6404E27122CE30062777F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6404D27122CE30062777F /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		EDB640472711F6F50062777F /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		EDB640492711F79B0062777F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
 		EDB6404B2711FA2F0062777F /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		EDB6404D27122CE30062777F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +357,7 @@
 			children = (
 				EDB640442711B6170062777F /* Message */,
 				EDB640492711F79B0062777F /* WebSocketService.swift */,
+				EDB6404D27122CE30062777F /* UserViewModel.swift */,
 				EDB6404B2711FA2F0062777F /* QuizViewModel.swift */,
 			);
 			path = Service;
@@ -482,6 +485,7 @@
 				88E1A7BE2711B7ED00297DB1 /* HeaderSectionView.swift in Sources */,
 				ED9C55FB2711AAAC0006F65C /* AnswerScoreItem.swift in Sources */,
 				886F961F271137930019FE40 /* TextMessageView.swift in Sources */,
+				EDB6404E27122CE30062777F /* UserViewModel.swift in Sources */,
 				886F9613271128080019FE40 /* TutorialBookRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
