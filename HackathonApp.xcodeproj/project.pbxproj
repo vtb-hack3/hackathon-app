@@ -27,6 +27,11 @@
 		88E1A7AC27115C8400297DB1 /* TaskMessageAnswerOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7AB27115C8400297DB1 /* TaskMessageAnswerOptionView.swift */; };
 		88E1A7B1271182E600297DB1 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B0271182E600297DB1 /* QuizView.swift */; };
 		88E1A7B3271182FB00297DB1 /* QuizHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B2271182FB00297DB1 /* QuizHeader.swift */; };
+		ED9C55FB2711AAAC0006F65C /* AnswerScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C55FA2711AAAC0006F65C /* AnswerScoreItem.swift */; };
+		ED9C55FD2711AF0F0006F65C /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C55FC2711AF0F0006F65C /* QuestionView.swift */; };
+		ED9C55FF2711B4D00006F65C /* AnswerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C55FE2711B4D00006F65C /* AnswerItemView.swift */; };
+		ED9C56012711C1310006F65C /* AnswersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C56002711C1310006F65C /* AnswersView.swift */; };
+		ED9C56032711CCA40006F65C /* AdviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C56022711CCA40006F65C /* AdviceView.swift */; };
 		EDB6402D2710D6210062777F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402C2710D6210062777F /* MainView.swift */; };
 		EDB640322710D6470062777F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640312710D6470062777F /* ProfileView.swift */; };
 		EDB640342710DFA10062777F /* GreetingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640332710DFA10062777F /* GreetingsHeaderView.swift */; };
@@ -58,6 +63,11 @@
 		88E1A7AB27115C8400297DB1 /* TaskMessageAnswerOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMessageAnswerOptionView.swift; sourceTree = "<group>"; };
 		88E1A7B0271182E600297DB1 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		88E1A7B2271182FB00297DB1 /* QuizHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHeader.swift; sourceTree = "<group>"; };
+		ED9C55FA2711AAAC0006F65C /* AnswerScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerScoreItem.swift; sourceTree = "<group>"; };
+		ED9C55FC2711AF0F0006F65C /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		ED9C55FE2711B4D00006F65C /* AnswerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerItemView.swift; sourceTree = "<group>"; };
+		ED9C56002711C1310006F65C /* AnswersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersView.swift; sourceTree = "<group>"; };
+		ED9C56022711CCA40006F65C /* AdviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceView.swift; sourceTree = "<group>"; };
 		EDB6402C2710D6210062777F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EDB640312710D6470062777F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EDB640332710DFA10062777F /* GreetingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsHeaderView.swift; sourceTree = "<group>"; };
@@ -192,6 +202,11 @@
 			children = (
 				88E1A7B0271182E600297DB1 /* QuizView.swift */,
 				88E1A7B2271182FB00297DB1 /* QuizHeader.swift */,
+				ED9C56002711C1310006F65C /* AnswersView.swift */,
+				ED9C55FA2711AAAC0006F65C /* AnswerScoreItem.swift */,
+				ED9C55FC2711AF0F0006F65C /* QuestionView.swift */,
+				ED9C55FE2711B4D00006F65C /* AnswerItemView.swift */,
+				ED9C56022711CCA40006F65C /* AdviceView.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -332,7 +347,10 @@
 				EDB640402710EFC40062777F /* StoryView.swift in Sources */,
 				886F962827114F740019FE40 /* MessageSuggestionChip.swift in Sources */,
 				886F96042710836C0019FE40 /* ContentView.swift in Sources */,
+				ED9C55FF2711B4D00006F65C /* AnswerItemView.swift in Sources */,
 				88E1A7B1271182E600297DB1 /* QuizView.swift in Sources */,
+				ED9C56032711CCA40006F65C /* AdviceView.swift in Sources */,
+				ED9C55FD2711AF0F0006F65C /* QuestionView.swift in Sources */,
 				886F96242711487A0019FE40 /* ChatView.swift in Sources */,
 				886F962B271158320019FE40 /* Message.swift in Sources */,
 				886F9621271138A90019FE40 /* MentorBannerView.swift in Sources */,
@@ -340,6 +358,7 @@
 				EDB6403E2710EF9D0062777F /* StoriesView.swift in Sources */,
 				EDB640322710D6470062777F /* ProfileView.swift in Sources */,
 				EDB6402D2710D6210062777F /* MainView.swift in Sources */,
+				ED9C56012711C1310006F65C /* AnswersView.swift in Sources */,
 				EDB640362710E4890062777F /* CornerRadiusStyle.swift in Sources */,
 				886F9632271159740019FE40 /* TaskMessageView.swift in Sources */,
 				EDB640342710DFA10062777F /* GreetingsHeaderView.swift in Sources */,
@@ -349,6 +368,7 @@
 				886F962627114F590019FE40 /* MessageSuggestionChipsList.swift in Sources */,
 				886F9630271159220019FE40 /* TaskMessageData.swift in Sources */,
 				886F96022710836C0019FE40 /* HackathonAppApp.swift in Sources */,
+				ED9C55FB2711AAAC0006F65C /* AnswerScoreItem.swift in Sources */,
 				886F961F271137930019FE40 /* TextMessageView.swift in Sources */,
 				886F9613271128080019FE40 /* TutorialBookRow.swift in Sources */,
 			);
@@ -489,7 +509,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +539,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

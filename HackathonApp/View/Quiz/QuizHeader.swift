@@ -12,22 +12,26 @@ struct QuizHeader: View {
         ZStack {
             Color("blue_4")
             HStack {
-                Text("Викторина")
-                    .fontWeight(.medium)
-                    .font(.system(size: 28))
-                    .foregroundColor(.white)
-                
-                Spacer()
-                
-                ZStack {
-                    Circle()
-                        .frame(width: 52, height: 52)
-                        .foregroundColor(.white)
-                    Image("NotificationImage")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20, height: 20)
+                HStack {
+                    AnswerScoreItem(isCorrect: true)
+                    AnswerScoreItem(isCorrect: false)
+                    AnswerScoreItem(isCorrect: false)
                 }
+                Spacer()
+                ZStack {
+                    Image("round_bg")
+                    Image("user_1")
+
+                }
+
+            }.padding(.horizontal)
+            ZStack {
+                Image("round_bg")
+                Text("1")
+                    .font(.title)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.923, green: 0.647, blue: -0.225)/*@END_MENU_TOKEN@*/)
+                    .multilineTextAlignment(.center)
+
             }
             .padding()
         }

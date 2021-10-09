@@ -15,7 +15,7 @@ struct ContentView: View {
                     Image("ic_home")
                     Text("Главная")
                 }
-            QuizView()
+            QuizView(quiz: quizMock)
                 .tabItem {
                     Image("ic_quiz")
                     Text("Викторина")
