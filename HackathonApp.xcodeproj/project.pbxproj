@@ -31,6 +31,7 @@
 		88C93C002711EB0A004465DE /* QuizSearchPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C93BFF2711EB0A004465DE /* QuizSearchPlayers.swift */; };
 		88C93C022711EC4C004465DE /* QuizSearchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C93C012711EC4C004465DE /* QuizSearchTimer.swift */; };
 		88C93CFE27121E84004465DE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C93CFD27121E84004465DE /* OnboardingView.swift */; };
+		88C93D0227123110004465DE /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C93D0127123110004465DE /* OnboardingNameView.swift */; };
 		88E1A7AC27115C8400297DB1 /* TaskMessageAnswerOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7AB27115C8400297DB1 /* TaskMessageAnswerOptionView.swift */; };
 		88E1A7B1271182E600297DB1 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B0271182E600297DB1 /* QuizView.swift */; };
 		88E1A7B3271182FB00297DB1 /* QuizHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B2271182FB00297DB1 /* QuizHeader.swift */; };
@@ -87,6 +88,7 @@
 		88C93BFF2711EB0A004465DE /* QuizSearchPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSearchPlayers.swift; sourceTree = "<group>"; };
 		88C93C012711EC4C004465DE /* QuizSearchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSearchTimer.swift; sourceTree = "<group>"; };
 		88C93CFD27121E84004465DE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		88C93D0127123110004465DE /* OnboardingNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNameView.swift; sourceTree = "<group>"; };
 		88E1A7AB27115C8400297DB1 /* TaskMessageAnswerOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMessageAnswerOptionView.swift; sourceTree = "<group>"; };
 		88E1A7B0271182E600297DB1 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		88E1A7B2271182FB00297DB1 /* QuizHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHeader.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				88C93CFD27121E84004465DE /* OnboardingView.swift */,
+				88C93D0127123110004465DE /* OnboardingNameView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				88C93BF52711CE00004465DE /* QuizResultPlayers .swift in Sources */,
 				88C93C022711EC4C004465DE /* QuizSearchTimer.swift in Sources */,
 				886F96022710836C0019FE40 /* HackathonAppApp.swift in Sources */,
+				88C93D0227123110004465DE /* OnboardingNameView.swift in Sources */,
 				EDB640482711F6F50062777F /* OutgoingMessage.swift in Sources */,
 				88E1A7BE2711B7ED00297DB1 /* HeaderSectionView.swift in Sources */,
 				ED9C55FB2711AAAC0006F65C /* AnswerScoreItem.swift in Sources */,
