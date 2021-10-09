@@ -10,20 +10,24 @@ final class QuizViewModel: ObservableObject {
     @Published private(set) var opponent: Opponent?
     @Published private(set) var myAnswerIndex: Int?
     @Published private(set) var opponentAnswerIndex: Int?
-    @Published private(set) var matchmakingSeconds: Int?
+    @Published var matchmakingSeconds: Int?
     @Published private(set) var finished: Bool = false
+    @Published private(set) var isConnected: Bool = false
 
     private var questions: [Question] = []
     private var currentQuestionIndex: Int = 0
 
     let webSocketService = WebSocketService()
 
-    private var cancellable: AnyCancellable?
+    private var msgCancellable: AnyCancellable?
+    private var connectionCancellable: AnyCancellable?
 
     init() {
-        cancellable = webSocketService.$messages.sink { [weak self] messages in
-            guard let self = self else { return }
-            let message = messages.last!
+        msgCancellable = webSocketService.$messages.sink { [weak self] messages in
+            guard let self = self,
+                  let message = messages.last else {
+                      return
+                  }
             switch message.type {
             case .quizStarted:
                 self.questions = message.payload.questions!
@@ -43,12 +47,16 @@ final class QuizViewModel: ObservableObject {
             case .finish:
                 self.finished = true
                 self.resetQuestionStats()
-                self.cancellable?.cancel()
+                self.msgCancellable?.cancel()
             }
+        }
+        connectionCancellable = webSocketService.$isConnected.sink { [weak self] isConnected in
+            self?.isConnected = isConnected
         }
     }
 
     func startMatchmaking() {
+        webSocketService.connect()
         webSocketService.send(
             message: .init(
                 type: .startQuiz,
@@ -72,7 +80,8 @@ final class QuizViewModel: ObservableObject {
                 )
             )
         )
-        cancellable?.cancel()
+        msgCancellable?.cancel()
+        connectionCancellable?.cancel()
     }
 
     func answer(answerId: Int) {
@@ -91,7 +100,8 @@ final class QuizViewModel: ObservableObject {
 
     func leave() {
         resetQuestionStats()
-        cancellable?.cancel()
+        msgCancellable?.cancel()
+        connectionCancellable?.cancel()
         webSocketService.send(
             message: OutgoingMessage(
                 type: .leave,
@@ -117,6 +127,7 @@ final class QuizViewModel: ObservableObject {
     }
 
     deinit {
-        cancellable?.cancel()
+        msgCancellable?.cancel()
+        connectionCancellable?.cancel()
     }
 }

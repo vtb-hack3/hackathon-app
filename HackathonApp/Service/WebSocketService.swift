@@ -1,22 +1,25 @@
 import Foundation
 import Combine
 
-final class WebSocketService: ObservableObject {
+final class WebSocketService: NSObject, ObservableObject, URLSessionWebSocketDelegate {
     private var webSocketTask: URLSessionWebSocketTask?
 
     @Published private(set) var messages: [IncomingMessage] = []
+    @Published private(set) var isConnected: Bool = false
 
     // MARK: - Connection
 
     func connect() {
         let url = URL(string: "ws://127.0.0.1:8080/chat")!
         webSocketTask = URLSession.shared.webSocketTask(with: url)
+        webSocketTask?.delegate = self
         webSocketTask?.receive(completionHandler: onReceive)
         webSocketTask?.resume()
     }
 
     func disconnect() {
         webSocketTask?.cancel(with: .normalClosure, reason: nil)
+        isConnected = false
     }
 
     // MARK: - Receiving
@@ -63,5 +66,24 @@ final class WebSocketService: ObservableObject {
 
     deinit {
         disconnect()
+    }
+
+    // MARK: - URLSessionTaskDelegate -
+
+    func urlSession(
+        _ session: URLSession,
+        webSocketTask: URLSessionWebSocketTask,
+        didOpenWithProtocol protocol: String?
+    ) {
+        isConnected = true
+    }
+
+    func urlSession(
+        _ session: URLSession,
+        webSocketTask: URLSessionWebSocketTask,
+        didCloseWith closeCode: URLSessionWebSocketTask.CloseCode,
+        reason: Data?
+    ) {
+        isConnected = false
     }
 }
