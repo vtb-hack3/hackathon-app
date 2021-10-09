@@ -5,14 +5,14 @@ fileprivate let userId = Int32.random(in: Int32.min...Int32.max)
 
 final class QuizViewModel: ObservableObject {
 
-    @Published private(set) var question: Question?
-    @Published private(set) var questionProgressSec: Int?
-    @Published private(set) var opponent: Opponent?
-    @Published private(set) var myAnswerIndex: Int?
-    @Published private(set) var opponentAnswerIndex: Int?
+    @Published var question: Question?
+    @Published var questionProgressSec: Int?
+    @Published var opponent: Opponent?
+    @Published var myAnswerIndex: Int?
+    @Published var opponentAnswerIndex: Int?
     @Published var matchmakingSeconds: Int?
-    @Published private(set) var finished: Bool = false
-    @Published private(set) var isConnected: Bool = false
+    @Published var finished: Bool = false
+    @Published var isConnected: Bool = false
 
     private var questions: [Question] = []
     private var currentQuestionIndex: Int = 0
