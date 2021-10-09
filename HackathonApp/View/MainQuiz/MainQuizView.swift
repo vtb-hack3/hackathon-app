@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct MainQuizView: View {
+
     @StateObject var viewModel = QuizViewModel()
     var body: some View {
         NavigationView {
             ZStack {
                 Color(.white)
+                Image("img_enviro")
+                    .resizable()
+                    .scaledToFit()
                 VStack {
+                    Spacer()
+                        .frame(height: 44)
                     HeaderSectionView()
                         .padding()
-                    Image("EnviroImage")
-                        .resizable()
-                        .frame(height: 400)
-                        .scaledToFit()
-                    
                     ZStack {
                         HStack {
                             Text("Начинающий")
                                 .fontWeight(.medium)
                                 .font(.system(size: 20))
-                            
+
                             Image("MedalImage")
                                 .resizable()
                                 .frame(width: 48, height: 39)
@@ -34,13 +35,8 @@ struct MainQuizView: View {
                         .frame(width: 339, height: 64)
                         .background(Color("blue_1"))
                         .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color("orange_border"), lineWidth: 1)
-                        )
                     }
-                    .padding(.bottom, 72)
-                    
+                    Spacer()
                     NavigationLink(destination: QuizSearchView()) {
                         ZStack {
                             Text("Начать викторину")
@@ -50,13 +46,15 @@ struct MainQuizView: View {
                         }
                         .frame(width: 343, height: 64)
                         .background(Color("blue_5"))
-                        .cornerRadius(16)
+                        .cornerRadius(20)
                         .shadow(color: Color("shadow_2"), radius: 18, x: 0, y: 0)
                     }
+                    Spacer()
+                        .frame(height: 24)
                 }
             }
-            .ignoresSafeArea()
-            .environmentObject(viewModel)
+            .frame(maxHeight: .infinity)
+            .edgesIgnoringSafeArea(.top)
         }
     }
 }
@@ -64,5 +62,6 @@ struct MainQuizView: View {
 struct MainQuizView_Previews: PreviewProvider {
     static var previews: some View {
         MainQuizView()
+            .previewDevice("iPhone 13 Pro Max")
     }
 }
