@@ -27,6 +27,10 @@
 		88E1A7AC27115C8400297DB1 /* TaskMessageAnswerOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7AB27115C8400297DB1 /* TaskMessageAnswerOptionView.swift */; };
 		88E1A7B1271182E600297DB1 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B0271182E600297DB1 /* QuizView.swift */; };
 		88E1A7B3271182FB00297DB1 /* QuizHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B2271182FB00297DB1 /* QuizHeader.swift */; };
+		88E1A7B62711853600297DB1 /* QuizTypesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B52711853600297DB1 /* QuizTypesList.swift */; };
+		88E1A7B92711854C00297DB1 /* QuizTypeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B82711854C00297DB1 /* QuizTypeRow.swift */; };
+		88E1A7BC2711B5A400297DB1 /* MainQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7BB2711B5A400297DB1 /* MainQuizView.swift */; };
+		88E1A7BE2711B7ED00297DB1 /* HeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7BD2711B7ED00297DB1 /* HeaderSectionView.swift */; };
 		EDB6402D2710D6210062777F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402C2710D6210062777F /* MainView.swift */; };
 		EDB640322710D6470062777F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640312710D6470062777F /* ProfileView.swift */; };
 		EDB640342710DFA10062777F /* GreetingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640332710DFA10062777F /* GreetingsHeaderView.swift */; };
@@ -58,6 +62,10 @@
 		88E1A7AB27115C8400297DB1 /* TaskMessageAnswerOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMessageAnswerOptionView.swift; sourceTree = "<group>"; };
 		88E1A7B0271182E600297DB1 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		88E1A7B2271182FB00297DB1 /* QuizHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHeader.swift; sourceTree = "<group>"; };
+		88E1A7B52711853600297DB1 /* QuizTypesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTypesList.swift; sourceTree = "<group>"; };
+		88E1A7B82711854C00297DB1 /* QuizTypeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTypeRow.swift; sourceTree = "<group>"; };
+		88E1A7BB2711B5A400297DB1 /* MainQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQuizView.swift; sourceTree = "<group>"; };
+		88E1A7BD2711B7ED00297DB1 /* HeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionView.swift; sourceTree = "<group>"; };
 		EDB6402C2710D6210062777F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EDB640312710D6470062777F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EDB640332710DFA10062777F /* GreetingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsHeaderView.swift; sourceTree = "<group>"; };
@@ -191,14 +199,42 @@
 			isa = PBXGroup;
 			children = (
 				88E1A7B0271182E600297DB1 /* QuizView.swift */,
-				88E1A7B2271182FB00297DB1 /* QuizHeader.swift */,
+				88E1A7B42711852A00297DB1 /* Sections */,
 			);
 			path = Quiz;
+			sourceTree = "<group>";
+		};
+		88E1A7B42711852A00297DB1 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				88E1A7B2271182FB00297DB1 /* QuizHeader.swift */,
+				88E1A7B72711854200297DB1 /* QuizTypes */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		88E1A7B72711854200297DB1 /* QuizTypes */ = {
+			isa = PBXGroup;
+			children = (
+				88E1A7B52711853600297DB1 /* QuizTypesList.swift */,
+				88E1A7B82711854C00297DB1 /* QuizTypeRow.swift */,
+			);
+			path = QuizTypes;
+			sourceTree = "<group>";
+		};
+		88E1A7BA2711B4C800297DB1 /* MainQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				88E1A7BB2711B5A400297DB1 /* MainQuizView.swift */,
+				88E1A7BD2711B7ED00297DB1 /* HeaderSectionView.swift */,
+			);
+			path = MainQuiz;
 			sourceTree = "<group>";
 		};
 		EDB6402E2710D6260062777F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88E1A7BA2711B4C800297DB1 /* MainQuiz */,
 				886F96222711480D0019FE40 /* ChatView */,
 				886F96032710836C0019FE40 /* ContentView.swift */,
 				EDB640382710EAB20062777F /* Main */,
@@ -336,12 +372,15 @@
 				886F96242711487A0019FE40 /* ChatView.swift in Sources */,
 				886F962B271158320019FE40 /* Message.swift in Sources */,
 				886F9621271138A90019FE40 /* MentorBannerView.swift in Sources */,
+				88E1A7B62711853600297DB1 /* QuizTypesList.swift in Sources */,
 				88E1A7AC27115C8400297DB1 /* TaskMessageAnswerOptionView.swift in Sources */,
 				EDB6403E2710EF9D0062777F /* StoriesView.swift in Sources */,
 				EDB640322710D6470062777F /* ProfileView.swift in Sources */,
+				88E1A7B92711854C00297DB1 /* QuizTypeRow.swift in Sources */,
 				EDB6402D2710D6210062777F /* MainView.swift in Sources */,
 				EDB640362710E4890062777F /* CornerRadiusStyle.swift in Sources */,
 				886F9632271159740019FE40 /* TaskMessageView.swift in Sources */,
+				88E1A7BC2711B5A400297DB1 /* MainQuizView.swift in Sources */,
 				EDB640342710DFA10062777F /* GreetingsHeaderView.swift in Sources */,
 				EDB6403A2710EAC10062777F /* CircleProgressBar.swift in Sources */,
 				886F961727112D8D0019FE40 /* TestListView.swift in Sources */,
@@ -349,6 +388,7 @@
 				886F962627114F590019FE40 /* MessageSuggestionChipsList.swift in Sources */,
 				886F9630271159220019FE40 /* TaskMessageData.swift in Sources */,
 				886F96022710836C0019FE40 /* HackathonAppApp.swift in Sources */,
+				88E1A7BE2711B7ED00297DB1 /* HeaderSectionView.swift in Sources */,
 				886F961F271137930019FE40 /* TextMessageView.swift in Sources */,
 				886F9613271128080019FE40 /* TutorialBookRow.swift in Sources */,
 			);
