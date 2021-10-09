@@ -8,6 +8,7 @@ struct MainView: View {
             StoriesView()
                 .offset(x: 0, y: -40)
             TutorialBooks()
+            TestListView()
             Color.white
         }
     }
