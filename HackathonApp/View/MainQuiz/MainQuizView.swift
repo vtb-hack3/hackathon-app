@@ -10,6 +10,8 @@ import SwiftUI
 struct MainQuizView: View {
 
     @StateObject var viewModel = QuizViewModel()
+    @EnvironmentObject var userViewModel: UserViewModel
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -22,9 +24,10 @@ struct MainQuizView: View {
                         .frame(height: 44)
                     HeaderSectionView()
                         .padding()
+                        .environmentObject(userViewModel)
                     ZStack {
                         HStack {
-                            Text("Начинающий")
+                            Text("\(String.rank(from: $userViewModel.rank.wrappedValue))")
                                 .fontWeight(.medium)
                                 .font(.system(size: 20))
 
@@ -63,5 +66,6 @@ struct MainQuizView_Previews: PreviewProvider {
     static var previews: some View {
         MainQuizView()
             .previewDevice("iPhone 13 Pro Max")
+            .environmentObject(UserViewModel())
     }
 }

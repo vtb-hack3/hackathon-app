@@ -1,12 +1,11 @@
 import Combine
 import Foundation
-import UIKit
 
 final class UserViewModel: ObservableObject {
     @Published var name: String = "User"
     @Published var pictureId: Int = 0
     @Published private(set) var rankPoints: Int = 0
-    @Published private(set) var rank: Rank = .newbie
+    @Published var rank: Rank = .newbie
     @Published var coins: Int = 250
 
     enum Rank {
@@ -56,6 +55,19 @@ extension Image {
             return Image("pr_pic_4")
         default:
             return Image("pr_pic_1")
+        }
+    }
+}
+
+extension String {
+    static func rank(from rank: UserViewModel.Rank) -> String {
+        switch rank {
+        case .newbie:
+            return "Новичок"
+        case .expirienced:
+            return "Опытный"
+        case .expert:
+            return "Знаток"
         }
     }
 }
