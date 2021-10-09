@@ -52,7 +52,7 @@
 		EDB640462711B62A0062777F /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640452711B62A0062777F /* IncomingMessage.swift */; };
 		EDB640482711F6F50062777F /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640472711F6F50062777F /* OutgoingMessage.swift */; };
 		EDB6404A2711F79B0062777F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640492711F79B0062777F /* WebSocketService.swift */; };
-		EDB6404C2711FA2F0062777F /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6404B2711FA2F0062777F /* QuizService.swift */; };
+		EDB6404C2711FA2F0062777F /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6404B2711FA2F0062777F /* QuizViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,7 +102,7 @@
 		EDB640452711B62A0062777F /* IncomingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
 		EDB640472711F6F50062777F /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		EDB640492711F79B0062777F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
-		EDB6404B2711FA2F0062777F /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
+		EDB6404B2711FA2F0062777F /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,7 +355,7 @@
 			children = (
 				EDB640442711B6170062777F /* Message */,
 				EDB640492711F79B0062777F /* WebSocketService.swift */,
-				EDB6404B2711FA2F0062777F /* QuizService.swift */,
+				EDB6404B2711FA2F0062777F /* QuizViewModel.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -449,7 +449,7 @@
 				88C93BF82711D6B3004465DE /* QuizResultRow.swift in Sources */,
 				886F962827114F740019FE40 /* MessageSuggestionChip.swift in Sources */,
 				886F96042710836C0019FE40 /* ContentView.swift in Sources */,
-				EDB6404C2711FA2F0062777F /* QuizService.swift in Sources */,
+				EDB6404C2711FA2F0062777F /* QuizViewModel.swift in Sources */,
 				ED9C55FF2711B4D00006F65C /* AnswerItemView.swift in Sources */,
 				88E1A7B1271182E600297DB1 /* QuizView.swift in Sources */,
 				ED9C56032711CCA40006F65C /* AdviceView.swift in Sources */,
