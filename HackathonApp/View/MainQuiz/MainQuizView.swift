@@ -11,13 +11,12 @@ struct MainQuizView: View {
     var body: some View {
         ZStack {
             Color(.white)
+            Image("img_enviro")
+                .resizable()
+                .scaledToFit()
             VStack {
                 HeaderSectionView()
                     .padding()
-                Image("EnviroImage")
-                    .resizable()
-                    .frame(height: 400)
-                    .scaledToFit()
                 
                 ZStack {
                     HStack {
@@ -32,31 +31,28 @@ struct MainQuizView: View {
                     .frame(width: 339, height: 64)
                     .background(Color("blue_1"))
                     .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color("orange_border"), lineWidth: 1)
-                    )
                 }
                 .padding(.bottom, 72)
-                
-                ZStack {
-                    Text("Начать викторину")
-                        .foregroundColor(.white)
-                        .fontWeight(.medium)
-                        .font(.system(size: 19))
-                }
+                Spacer()
+                Text("Начать викторину")
+                    .foregroundColor(.white)
+                    .fontWeight(.medium)
+                    .font(.system(size: 19))
                 .frame(width: 343, height: 64)
                 .background(Color("blue_5"))
                 .cornerRadius(16)
                 .shadow(color: Color("shadow_2"), radius: 18, x: 0, y: 0)
+                Spacer()
+                    .frame(height: 24)
             }
         }
-        .ignoresSafeArea()
+        .frame(maxHeight: .infinity)
     }
 }
 
 struct MainQuizView_Previews: PreviewProvider {
     static var previews: some View {
         MainQuizView()
+            .previewDevice("iPhone 13 Pro Max")
     }
 }
