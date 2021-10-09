@@ -4,7 +4,7 @@ struct GreetingsHeaderView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .center) {
-                Color("blue_2")
+                Color("blue_6")
                     .cornerRadius(radius: 35, corners: [.bottomLeft, .bottomRight])
                     .ignoresSafeArea(edges: .top)
                 VStack(spacing: 2) {
@@ -13,14 +13,18 @@ struct GreetingsHeaderView: View {
                             .frame(width: 16)
                         Text("Добро пожаловать")
                             .font(.system(size: 15))
+                            .fontWeight(.regular)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(.white)
                     }
                     HStack {
                         Spacer()
                             .frame(width: 16)
                         Text("Марк!")
                             .font(.system(size: 28))
+                            .fontWeight(.medium)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(.white)
                         CircleProgressBar()
                             .shadow(color: .white, radius: 30)
                         Spacer()
