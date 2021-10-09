@@ -6,9 +6,6 @@ struct MainView: View {
             VStack {
                 GreetingsHeaderView()
                     .frame(height: 190)
-                StoriesView()
-                    .offset(y: -40)
-                    .padding(.bottom, -40)
                 MentorView()
                 Spacer(minLength: 16)
                 TutorialBooks()
