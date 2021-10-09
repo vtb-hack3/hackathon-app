@@ -19,6 +19,7 @@ final class WebSocketService: NSObject, ObservableObject, URLSessionWebSocketDel
 
     func disconnect() {
         webSocketTask?.cancel(with: .normalClosure, reason: nil)
+        isConnected = false
     }
 
     // MARK: - Receiving
