@@ -7,6 +7,7 @@ struct MainView: View {
                 .frame(height: 190)
             StoriesView()
                 .offset(x: 0, y: -40)
+            MentorView()
             TutorialBooks()
             TestListView()
             Color.white

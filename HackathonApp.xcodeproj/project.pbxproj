@@ -15,6 +15,9 @@
 		886F9613271128080019FE40 /* TutorialBookRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F9612271128080019FE40 /* TutorialBookRow.swift */; };
 		886F961727112D8D0019FE40 /* TestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F961627112D8D0019FE40 /* TestListView.swift */; };
 		886F961927112EAA0019FE40 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F961827112EAA0019FE40 /* TestView.swift */; };
+		886F961C271136000019FE40 /* MentorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F961B271136000019FE40 /* MentorView.swift */; };
+		886F961F271137930019FE40 /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F961E271137930019FE40 /* MessageBubbleView.swift */; };
+		886F9621271138A90019FE40 /* MentorBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F9620271138A90019FE40 /* MentorBannerView.swift */; };
 		EDB6402D2710D6210062777F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402C2710D6210062777F /* MainView.swift */; };
 		EDB640302710D63A0062777F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402F2710D63A0062777F /* QuizView.swift */; };
 		EDB640322710D6470062777F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640312710D6470062777F /* ProfileView.swift */; };
@@ -35,6 +38,9 @@
 		886F9612271128080019FE40 /* TutorialBookRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialBookRow.swift; sourceTree = "<group>"; };
 		886F961627112D8D0019FE40 /* TestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListView.swift; sourceTree = "<group>"; };
 		886F961827112EAA0019FE40 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		886F961B271136000019FE40 /* MentorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorView.swift; sourceTree = "<group>"; };
+		886F961E271137930019FE40 /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
+		886F9620271138A90019FE40 /* MentorBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorBannerView.swift; sourceTree = "<group>"; };
 		EDB6402C2710D6210062777F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EDB6402F2710D63A0062777F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		EDB640312710D6470062777F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -110,6 +116,23 @@
 			path = TestsSection;
 			sourceTree = "<group>";
 		};
+		886F961A271135C10019FE40 /* MentorSection */ = {
+			isa = PBXGroup;
+			children = (
+				886F961B271136000019FE40 /* MentorView.swift */,
+				886F9620271138A90019FE40 /* MentorBannerView.swift */,
+			);
+			path = MentorSection;
+			sourceTree = "<group>";
+		};
+		886F961D271137830019FE40 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				886F961E271137930019FE40 /* MessageBubbleView.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
 		EDB6402E2710D6260062777F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +147,7 @@
 		EDB640372710E4910062777F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				886F961D271137830019FE40 /* CommonViews */,
 				EDB640352710E4890062777F /* CornerRadiusStyle.swift */,
 			);
 			path = Utils;
@@ -133,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				EDB6402C2710D6210062777F /* MainView.swift */,
-				EDB6403C2710EF7E0062777F /* Views */,
 				EDB6403B2710EF5A0062777F /* Sections */,
 			);
 			path = Main;
@@ -142,19 +165,13 @@
 		EDB6403B2710EF5A0062777F /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				886F961A271135C10019FE40 /* MentorSection */,
 				886F961527112D7E0019FE40 /* TestsSection */,
 				886F960F2711268F0019FE40 /* TutorialBooksSection */,
 				EDB640412710EFFE0062777F /* GreetingsHeader */,
 				EDB640422710F0080062777F /* Stories */,
 			);
 			path = Sections;
-			sourceTree = "<group>";
-		};
-		EDB6403C2710EF7E0062777F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		EDB640412710EFFE0062777F /* GreetingsHeader */ = {
@@ -245,9 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				886F961C271136000019FE40 /* MentorView.swift in Sources */,
 				886F961927112EAA0019FE40 /* TestView.swift in Sources */,
 				EDB640402710EFC40062777F /* StoryView.swift in Sources */,
 				886F96042710836C0019FE40 /* ContentView.swift in Sources */,
+				886F9621271138A90019FE40 /* MentorBannerView.swift in Sources */,
 				EDB640302710D63A0062777F /* QuizView.swift in Sources */,
 				EDB6403E2710EF9D0062777F /* StoriesView.swift in Sources */,
 				EDB640322710D6470062777F /* ProfileView.swift in Sources */,
@@ -258,6 +277,7 @@
 				886F961727112D8D0019FE40 /* TestListView.swift in Sources */,
 				886F9611271126D10019FE40 /* TutorialBooks.swift in Sources */,
 				886F96022710836C0019FE40 /* HackathonAppApp.swift in Sources */,
+				886F961F271137930019FE40 /* MessageBubbleView.swift in Sources */,
 				886F9613271128080019FE40 /* TutorialBookRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
