@@ -25,8 +25,9 @@
 		886F9630271159220019FE40 /* TaskMessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F962F271159220019FE40 /* TaskMessageData.swift */; };
 		886F9632271159740019FE40 /* TaskMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F9631271159740019FE40 /* TaskMessageView.swift */; };
 		88E1A7AC27115C8400297DB1 /* TaskMessageAnswerOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7AB27115C8400297DB1 /* TaskMessageAnswerOptionView.swift */; };
+		88E1A7B1271182E600297DB1 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B0271182E600297DB1 /* QuizView.swift */; };
+		88E1A7B3271182FB00297DB1 /* QuizHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7B2271182FB00297DB1 /* QuizHeader.swift */; };
 		EDB6402D2710D6210062777F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402C2710D6210062777F /* MainView.swift */; };
-		EDB640302710D63A0062777F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402F2710D63A0062777F /* QuizView.swift */; };
 		EDB640322710D6470062777F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640312710D6470062777F /* ProfileView.swift */; };
 		EDB640342710DFA10062777F /* GreetingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640332710DFA10062777F /* GreetingsHeaderView.swift */; };
 		EDB640362710E4890062777F /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640352710E4890062777F /* CornerRadiusStyle.swift */; };
@@ -55,8 +56,9 @@
 		886F962F271159220019FE40 /* TaskMessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMessageData.swift; sourceTree = "<group>"; };
 		886F9631271159740019FE40 /* TaskMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMessageView.swift; sourceTree = "<group>"; };
 		88E1A7AB27115C8400297DB1 /* TaskMessageAnswerOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMessageAnswerOptionView.swift; sourceTree = "<group>"; };
+		88E1A7B0271182E600297DB1 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		88E1A7B2271182FB00297DB1 /* QuizHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHeader.swift; sourceTree = "<group>"; };
 		EDB6402C2710D6210062777F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		EDB6402F2710D63A0062777F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		EDB640312710D6470062777F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EDB640332710DFA10062777F /* GreetingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsHeaderView.swift; sourceTree = "<group>"; };
 		EDB640352710E4890062777F /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
@@ -185,13 +187,22 @@
 			path = TaskMessage;
 			sourceTree = "<group>";
 		};
+		88E1A7AF271182B300297DB1 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				88E1A7B0271182E600297DB1 /* QuizView.swift */,
+				88E1A7B2271182FB00297DB1 /* QuizHeader.swift */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
 		EDB6402E2710D6260062777F /* View */ = {
 			isa = PBXGroup;
 			children = (
 				886F96222711480D0019FE40 /* ChatView */,
 				886F96032710836C0019FE40 /* ContentView.swift */,
 				EDB640382710EAB20062777F /* Main */,
-				EDB6402F2710D63A0062777F /* QuizView.swift */,
+				88E1A7AF271182B300297DB1 /* Quiz */,
 				EDB640312710D6470062777F /* ProfileView.swift */,
 			);
 			path = View;
@@ -317,14 +328,15 @@
 			files = (
 				886F961C271136000019FE40 /* MentorView.swift in Sources */,
 				886F961927112EAA0019FE40 /* TestView.swift in Sources */,
+				88E1A7B3271182FB00297DB1 /* QuizHeader.swift in Sources */,
 				EDB640402710EFC40062777F /* StoryView.swift in Sources */,
 				886F962827114F740019FE40 /* MessageSuggestionChip.swift in Sources */,
 				886F96042710836C0019FE40 /* ContentView.swift in Sources */,
+				88E1A7B1271182E600297DB1 /* QuizView.swift in Sources */,
 				886F96242711487A0019FE40 /* ChatView.swift in Sources */,
 				886F962B271158320019FE40 /* Message.swift in Sources */,
 				886F9621271138A90019FE40 /* MentorBannerView.swift in Sources */,
 				88E1A7AC27115C8400297DB1 /* TaskMessageAnswerOptionView.swift in Sources */,
-				EDB640302710D63A0062777F /* QuizView.swift in Sources */,
 				EDB6403E2710EF9D0062777F /* StoriesView.swift in Sources */,
 				EDB640322710D6470062777F /* ProfileView.swift in Sources */,
 				EDB6402D2710D6210062777F /* MainView.swift in Sources */,

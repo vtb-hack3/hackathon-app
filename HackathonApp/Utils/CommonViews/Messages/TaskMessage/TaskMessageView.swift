@@ -21,9 +21,8 @@ struct TaskMessageView: View {
                 .font(.system(size: 15))
                 .padding(.top, 10)
                 .padding(.bottom, 15)
-                .fixedSize(horizontal: false, vertical: true) 
+                .fixedSize(horizontal: false, vertical: true)
                 
-            
             ForEach(messageData.answerVariants, id: \.self) { answerVariant in
                 TaskMessageAnswerOptionView(text: answerVariant, isChosen: false)
                     .onTapGesture {
