@@ -12,13 +12,13 @@ struct ProfileSliderView: View {
 
     var body: some View {
         HStack {
-            ForEach(0..<7) { index in
+            ForEach(0..<8) { index in
                 VStack {
                     HStack {
                         Color.black
                             .frame(width: 0.5, height: 4)
                         Spacer()
-                        if index == 6 {
+                        if index == 7 {
                             Color.black
                                 .frame(width: 1, height: 4)
                         }

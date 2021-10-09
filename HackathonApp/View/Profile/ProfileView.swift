@@ -1,17 +1,29 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+
     var body: some View {
         ScrollView {
             VStack {
-                ProfileHeaderView()
+                //
+                //coins
+                ProfileHeaderView(
+                    levelImage: .imageName(from: userViewModel.rank),
+                    level: String.rank(from: userViewModel.rank),
+                    coins: userViewModel.coins
+                )
                     .frame(height: 191)
                     .cornerRadius(radius: 35, corners: [.bottomRight, .bottomLeft])
                     .ignoresSafeArea(edges: .top)
                 ZStack {
                     Color("blue_3")
                         .clipShape(Circle())
-                    Image("user_avatar")
+                    Image.profile(
+                        by: $userViewModel.pictureId.wrappedValue
+                    )
+                        .resizable()
+                        .padding(32)
                 }
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color("1"), lineWidth: 2))
@@ -36,24 +48,30 @@ struct ProfileView: View {
                 }
                     .padding(.top, 60)
                     .padding(.horizontal)
-                ProfileSliderView(value: 3)
+                // 5000 - 7
+                // rankPoints - ?
+                // rankPoints * 7 / 5000
+                ProfileSliderView(value: max($userViewModel.rankPoints.wrappedValue, 1) * 8 / 5000
+                )
                     .padding(.top, 10)
                     .padding(.bottom, 24)
                     .padding(.horizontal)
                 ProfileItemView(
                     imageName: "status_item",
                     title: "Мой уровень",
-                    subtitle: "Новичок"
+                    subtitle: String.rank(from: userViewModel.rank)
                 )
                     .padding(.bottom, 14)
                     .padding(.leading)
-                ProfileItemView(
-                    imageName: "done_item",
-                    title: "До следующего уровня",
-                    subtitle: "2500 монет"
-                )
-                    .padding(.bottom, 32)
-                    .padding(.leading)
+                if userViewModel.rank != .expert {
+                    ProfileItemView(
+                        imageName: "done_item",
+                        title: "До следующего уровня",
+                        subtitle: "\(calculateNextLevel(rank: userViewModel.rank, rankPoints: userViewModel.rankPoints)) монет"
+                    )
+                        .padding(.bottom, 32)
+                        .padding(.leading)
+                }
                 Button(action: {
                     //                            self.selectedPoster = nil
                 }) {
@@ -83,6 +101,17 @@ struct ProfileView: View {
         .ignoresSafeArea(edges: .top)
     }
 
+    private func calculateNextLevel(rank: UserViewModel.Rank, rankPoints: Int) -> Int {
+        switch rank {
+        case .newbie:
+            return 2500 - rankPoints
+        case .expirienced:
+            return 5000 - rankPoints
+        case .expert:
+            return 0
+        }
+    }
+
     private func createlevelView(
         imageName: String,
         title: String
@@ -108,5 +137,6 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(UserViewModel.init())
     }
 }

@@ -27,6 +27,7 @@ struct ContentView: View {
                     Image("ic_profile")
                     Text("Профиль")
                 }
+                .environmentObject(userViewModel)
         }
         .accentColor(Color("blue_5"))
     }

@@ -4,9 +4,9 @@ import Foundation
 final class UserViewModel: ObservableObject {
     @Published var name: String = "User"
     @Published var pictureId: Int = 0
-    @Published private(set) var rankPoints: Int = 0
-    @Published var rank: Rank = .newbie
-    @Published var coins: Int = 250
+    @Published var rankPoints: Int = 4500
+    @Published var rank: Rank = .expirienced
+    @Published var coins: Int = 600
 
     enum Rank {
         case newbie
@@ -55,6 +55,19 @@ extension Image {
             return Image("pr_pic_4")
         default:
             return Image("pr_pic_1")
+        }
+    }
+}
+
+extension String {
+    static func imageName(from rank: UserViewModel.Rank) -> String {
+        switch rank {
+        case .newbie:
+            return "level"
+        case .expirienced:
+            return "level_2"
+        case .expert:
+            return "level_3"
         }
     }
 }

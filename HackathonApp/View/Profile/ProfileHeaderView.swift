@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
+    @State var levelImage: String
+    @State var level: String
+    @State var coins: Int
+
+
     var body: some View {
         ZStack {
             Color("1")
@@ -15,14 +20,14 @@ struct ProfileHeaderView: View {
                 VStack {
                     ZStack {
                         Color("blue_3")
-                        Text("Начинающий")
+                        Text(level)
                             .foregroundColor(.white)
                             .padding(10)
 
                     }
                     .cornerRadius(26)
                     .frame(width: 130, height: 41)
-                    Image("level")
+                    Image(levelImage)
                         .offset(y: -75)
                         .padding(.bottom, -75)
                 }
@@ -30,7 +35,7 @@ struct ProfileHeaderView: View {
                 VStack {
                     ZStack {
                         Color("blue_3")
-                        Text("250")
+                        Text("\(coins)")
                             .foregroundColor(.white)
                             .padding(10)
 
@@ -49,7 +54,11 @@ struct ProfileHeaderView: View {
 
 struct ProfileHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHeaderView()
+        ProfileHeaderView(
+            levelImage: "level",
+            level: "Уровень",
+            coins: 250
+        )
             .previewLayout(.fixed(width: 375, height: 191))
     }
 }
