@@ -10,7 +10,7 @@ import SwiftUI
 struct MainQuizView: View {
     var body: some View {
         ZStack {
-            Color("blue_7")
+            Color(.white)
             VStack {
                 HeaderSectionView()
                     .padding()
@@ -23,7 +23,6 @@ struct MainQuizView: View {
                     HStack {
                         Text("Начинающий")
                             .fontWeight(.medium)
-                            .foregroundColor(.white)
                             .font(.system(size: 20))
                             
                         Image("MedalImage")
@@ -31,7 +30,7 @@ struct MainQuizView: View {
                             .frame(width: 48, height: 39)
                     }
                     .frame(width: 339, height: 64)
-                    .background(Color("blue_8"))
+                    .background(Color("blue_1"))
                     .cornerRadius(20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)

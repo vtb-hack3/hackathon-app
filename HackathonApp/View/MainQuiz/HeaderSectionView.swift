@@ -21,6 +21,10 @@ struct HeaderSectionView: View {
                         .resizable()
                         .frame(width: 30, height: 28)
                     Text("250")
+                        .font(.system(size: 17))
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        
                 }
                 .padding(EdgeInsets(top: 8, leading: 14, bottom: 8, trailing: 14))
             }
