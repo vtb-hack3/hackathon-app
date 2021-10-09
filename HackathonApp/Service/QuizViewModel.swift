@@ -57,16 +57,16 @@ final class QuizViewModel: ObservableObject {
 
     func startMatchmaking() {
         webSocketService.connect()
-        webSocketService.send(
-            message: .init(
-                type: .startQuiz,
-                payload: .init(
-                    userId: Int(userId),
-                    answerId: nil,
-                    questionId: nil
-                )
-            )
-        )
+//        webSocketService.send(
+//            message: .init(
+//                type: .startQuiz,
+//                payload: .init(
+//                    userId: Int(userId),
+//                    answerId: nil,
+//                    questionId: nil
+//                )
+//            )
+//        )
     }
 
     func cancelMatchmaking() {

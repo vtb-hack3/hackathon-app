@@ -6,7 +6,9 @@ struct MainView: View {
             VStack {
                 GreetingsHeaderView()
                     .frame(height: 190)
-                MentorView()
+                Image("open_broker")
+                    .resizable()
+                    .scaledToFit()
                 Spacer(minLength: 16)
                 TutorialBooks()
                 Spacer(minLength: 32)

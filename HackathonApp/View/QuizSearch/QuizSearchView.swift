@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct QuizSearchView: View {
+
     @EnvironmentObject var viewModel: QuizViewModel
+
     var body: some View {
         ZStack {
             Color(.white)
@@ -27,6 +29,8 @@ struct QuizSearchView: View {
                 Spacer()
             }
             .environmentObject(viewModel)
+        }.onAppear {
+            viewModel.startMatchmaking()
         }
     }
 }
@@ -34,6 +38,5 @@ struct QuizSearchView: View {
 struct QuizSearchView_Previews: PreviewProvider {
     static var previews: some View {
         QuizSearchView()
-        
     }
 }
