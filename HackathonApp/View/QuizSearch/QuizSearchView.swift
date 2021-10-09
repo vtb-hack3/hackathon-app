@@ -10,7 +10,7 @@ import SwiftUI
 struct QuizSearchView: View {
     var body: some View {
         ZStack {
-            Color("blue_7")
+            Color(.white)
             VStack {
                 QuizSearchHeader()
                     .frame(height: 191)

@@ -12,25 +12,23 @@ struct QuizSearchPlayers: View {
         HStack {
             VStack(spacing: 8) {
                 Circle()
-                    .strokeBorder(Color("orange_border"), lineWidth: 1)
-                    .background(Circle().foregroundColor(Color("blue_9")))
+                    .strokeBorder(Color("blue_2"), lineWidth: 1)
+                    .background(Circle().foregroundColor(Color("blue_1")))
                     .frame(width: 82, height: 82)
                 Text("Марк")
                     .font(.system(size: 20))
                     .fontWeight(.medium)
-                    .foregroundColor(.white)
             }
             Spacer()
             VStack(spacing: 8) {
                 Circle()
-                    .strokeBorder(Color("orange_border"), lineWidth: 1)
-                    .background(Circle().foregroundColor(Color("blue_9")))
+                    .strokeBorder(Color("blue_2"), lineWidth: 1)
+                    .background(Circle().foregroundColor(Color("blue_1")))
                     .frame(width: 82, height: 82)
                     
                 Text("Игрок")
                     .font(.system(size: 20))
                     .fontWeight(.medium)
-                    .foregroundColor(.white)
             }
         }
         .padding()
