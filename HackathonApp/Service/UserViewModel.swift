@@ -2,7 +2,7 @@ import Combine
 import Foundation
 import UIKit
 
-final class UserViewModel {
+final class UserViewModel: ObservableObject {
     @Published var name: String = "User"
     @Published var pictureId: Int = 0
     @Published private(set) var rankPoints: Int = 0
