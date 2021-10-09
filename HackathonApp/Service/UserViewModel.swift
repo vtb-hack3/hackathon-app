@@ -40,3 +40,22 @@ final class UserViewModel: ObservableObject {
         }
     }
 }
+
+import SwiftUI
+
+extension Image {
+    static func profile(by id: Int) -> Image {
+        switch id {
+        case 1:
+            return Image("pr_pic_1")
+        case 2:
+            return Image("pr_pic_2")
+        case 3:
+            return Image("pr_pic_3")
+        case 4:
+            return Image("pr_pic_4")
+        default:
+            return Image("pr_pic_1")
+        }
+    }
+}
