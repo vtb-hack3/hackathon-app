@@ -8,45 +8,54 @@
 import SwiftUI
 
 struct MainQuizView: View {
+
+    @StateObject var viewModel = QuizViewModel()
     var body: some View {
-        ZStack {
-            Color(.white)
-            Image("img_enviro")
-                .resizable()
-                .scaledToFit()
-            VStack {
-                HeaderSectionView()
-                    .padding()
-                
-                ZStack {
-                    HStack {
-                        Text("Начинающий")
-                            .fontWeight(.medium)
-                            .font(.system(size: 20))
-                            
-                        Image("MedalImage")
-                            .resizable()
-                            .frame(width: 48, height: 39)
+        NavigationView {
+            ZStack {
+                Color(.white)
+                Image("img_enviro")
+                    .resizable()
+                    .scaledToFit()
+                VStack {
+                    Spacer()
+                        .frame(height: 44)
+                    HeaderSectionView()
+                        .padding()
+                    ZStack {
+                        HStack {
+                            Text("Начинающий")
+                                .fontWeight(.medium)
+                                .font(.system(size: 20))
+
+                            Image("MedalImage")
+                                .resizable()
+                                .frame(width: 48, height: 39)
+                        }
+                        .frame(width: 339, height: 64)
+                        .background(Color("blue_1"))
+                        .cornerRadius(20)
                     }
-                    .frame(width: 339, height: 64)
-                    .background(Color("blue_1"))
-                    .cornerRadius(20)
+                    Spacer()
+                    NavigationLink(destination: QuizSearchView()) {
+                        ZStack {
+                            Text("Начать викторину")
+                                .foregroundColor(.white)
+                                .fontWeight(.medium)
+                                .font(.system(size: 19))
+                        }
+                        .frame(width: 343, height: 64)
+                        .background(Color("blue_5"))
+                        .cornerRadius(20)
+                        .shadow(color: Color("shadow_2"), radius: 18, x: 0, y: 0)
+                    }
+                    Spacer()
+                        .frame(height: 24)
                 }
-                .padding(.bottom, 72)
-                Spacer()
-                Text("Начать викторину")
-                    .foregroundColor(.white)
-                    .fontWeight(.medium)
-                    .font(.system(size: 19))
-                .frame(width: 343, height: 64)
-                .background(Color("blue_5"))
-                .cornerRadius(16)
-                .shadow(color: Color("shadow_2"), radius: 18, x: 0, y: 0)
-                Spacer()
-                    .frame(height: 24)
             }
+            .frame(maxHeight: .infinity)
+            .edgesIgnoringSafeArea(.top)
         }
-        .frame(maxHeight: .infinity)
     }
 }
 
