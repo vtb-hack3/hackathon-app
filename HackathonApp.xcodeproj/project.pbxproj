@@ -34,6 +34,10 @@
 		EDB6403A2710EAC10062777F /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640392710EAC10062777F /* CircleProgressBar.swift */; };
 		EDB6403E2710EF9D0062777F /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6403D2710EF9D0062777F /* StoriesView.swift */; };
 		EDB640402710EFC40062777F /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6403F2710EFC40062777F /* StoryView.swift */; };
+		EDB640462711B62A0062777F /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640452711B62A0062777F /* IncomingMessage.swift */; };
+		EDB640482711F6F50062777F /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640472711F6F50062777F /* OutgoingMessage.swift */; };
+		EDB6404A2711F79B0062777F /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640492711F79B0062777F /* WebSocketService.swift */; };
+		EDB6404C2711FA2F0062777F /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6404B2711FA2F0062777F /* QuizService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,10 @@
 		EDB640392710EAC10062777F /* CircleProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBar.swift; sourceTree = "<group>"; };
 		EDB6403D2710EF9D0062777F /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
 		EDB6403F2710EFC40062777F /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		EDB640452711B62A0062777F /* IncomingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
+		EDB640472711F6F50062777F /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
+		EDB640492711F79B0062777F /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		EDB6404B2711FA2F0062777F /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 			children = (
 				886F9629271158260019FE40 /* Model */,
 				886F96012710836C0019FE40 /* HackathonAppApp.swift */,
+				EDB640432711B4390062777F /* Service */,
 				EDB640372710E4910062777F /* Utils */,
 				EDB6402E2710D6260062777F /* View */,
 				886F96052710836D0019FE40 /* Assets.xcassets */,
@@ -256,6 +265,25 @@
 			path = Stories;
 			sourceTree = "<group>";
 		};
+		EDB640432711B4390062777F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EDB640442711B6170062777F /* Message */,
+				EDB640492711F79B0062777F /* WebSocketService.swift */,
+				EDB6404B2711FA2F0062777F /* QuizService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		EDB640442711B6170062777F /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				EDB640452711B62A0062777F /* IncomingMessage.swift */,
+				EDB640472711F6F50062777F /* OutgoingMessage.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,9 +360,11 @@
 				EDB640402710EFC40062777F /* StoryView.swift in Sources */,
 				886F962827114F740019FE40 /* MessageSuggestionChip.swift in Sources */,
 				886F96042710836C0019FE40 /* ContentView.swift in Sources */,
+				EDB6404C2711FA2F0062777F /* QuizService.swift in Sources */,
 				88E1A7B1271182E600297DB1 /* QuizView.swift in Sources */,
 				886F96242711487A0019FE40 /* ChatView.swift in Sources */,
 				886F962B271158320019FE40 /* Message.swift in Sources */,
+				EDB640462711B62A0062777F /* IncomingMessage.swift in Sources */,
 				886F9621271138A90019FE40 /* MentorBannerView.swift in Sources */,
 				88E1A7AC27115C8400297DB1 /* TaskMessageAnswerOptionView.swift in Sources */,
 				EDB6403E2710EF9D0062777F /* StoriesView.swift in Sources */,
@@ -342,6 +372,7 @@
 				EDB6402D2710D6210062777F /* MainView.swift in Sources */,
 				EDB640362710E4890062777F /* CornerRadiusStyle.swift in Sources */,
 				886F9632271159740019FE40 /* TaskMessageView.swift in Sources */,
+				EDB6404A2711F79B0062777F /* WebSocketService.swift in Sources */,
 				EDB640342710DFA10062777F /* GreetingsHeaderView.swift in Sources */,
 				EDB6403A2710EAC10062777F /* CircleProgressBar.swift in Sources */,
 				886F961727112D8D0019FE40 /* TestListView.swift in Sources */,
@@ -349,6 +380,7 @@
 				886F962627114F590019FE40 /* MessageSuggestionChipsList.swift in Sources */,
 				886F9630271159220019FE40 /* TaskMessageData.swift in Sources */,
 				886F96022710836C0019FE40 /* HackathonAppApp.swift in Sources */,
+				EDB640482711F6F50062777F /* OutgoingMessage.swift in Sources */,
 				886F961F271137930019FE40 /* TextMessageView.swift in Sources */,
 				886F9613271128080019FE40 /* TutorialBookRow.swift in Sources */,
 			);
