@@ -10,7 +10,7 @@ final class QuizViewModel: ObservableObject {
     @Published private(set) var opponent: Opponent?
     @Published private(set) var myAnswerIndex: Int?
     @Published private(set) var opponentAnswerIndex: Int?
-    @Published private(set) var matchmakingSeconds: Int?
+    @Published var matchmakingSeconds: Int?
     @Published private(set) var finished: Bool = false
 
     private var questions: [Question] = []
@@ -23,7 +23,7 @@ final class QuizViewModel: ObservableObject {
     init() {
         cancellable = webSocketService.$messages.sink { [weak self] messages in
             guard let self = self else { return }
-            let message = messages.last!
+            guard let message = messages.last else { return }
             switch message.type {
             case .quizStarted:
                 self.questions = message.payload.questions!
