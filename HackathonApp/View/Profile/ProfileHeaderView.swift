@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
-    @State var levelImage: String
-    @State var level: String
-    @State var coins: Int
-
+    @EnvironmentObject var userViewModel: UserViewModel
 
     var body: some View {
         ZStack {
@@ -20,14 +17,14 @@ struct ProfileHeaderView: View {
                 VStack {
                     ZStack {
                         Color("blue_3")
-                        Text(level)
+                        Text(String.rank(from: userViewModel.rank))
                             .foregroundColor(.white)
                             .padding(10)
 
                     }
                     .cornerRadius(26)
                     .frame(width: 130, height: 41)
-                    Image(levelImage)
+                    Image(.imageName(from: userViewModel.rank))
                         .offset(y: -75)
                         .padding(.bottom, -75)
                 }
@@ -35,7 +32,7 @@ struct ProfileHeaderView: View {
                 VStack {
                     ZStack {
                         Color("blue_3")
-                        Text("\(coins)")
+                        Text("\(userViewModel.coins)")
                             .foregroundColor(.white)
                             .padding(10)
 
@@ -54,11 +51,8 @@ struct ProfileHeaderView: View {
 
 struct ProfileHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHeaderView(
-            levelImage: "level",
-            level: "Уровень",
-            coins: 250
-        )
+        ProfileHeaderView()
+            .environmentObject(UserViewModel.init())
             .previewLayout(.fixed(width: 375, height: 191))
     }
 }

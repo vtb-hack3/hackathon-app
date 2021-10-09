@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileSliderView: View {
-    @State var value: Int
+    @EnvironmentObject var userViewModel: UserViewModel
 
     var body: some View {
         HStack {
@@ -28,7 +28,7 @@ struct ProfileSliderView: View {
                             Color("blue_1")
                                 .cornerRadius(radius: 3, corners: [.bottomLeft, .topLeft])
                         }
-                        else if index == value - 1 {
+                        else if index == (max($userViewModel.rankPoints.wrappedValue, 1) * 8 / 5000) - 1 {
                             Color("blue_1")
                                 .cornerRadius(radius: 3, corners: [.bottomRight, .topRight])
                         }
@@ -36,12 +36,12 @@ struct ProfileSliderView: View {
                             Color("blue_1")
                         }
                         
-                        if index < value {
+                        if index < (max($userViewModel.rankPoints.wrappedValue, 1) * 8 / 5000) {
                             if index == 0 {
                                 Color("1")
                                     .cornerRadius(radius: 3, corners: [.bottomLeft, .topLeft])
                             }
-                            else if index == value - 1 {
+                            else if index == (max($userViewModel.rankPoints.wrappedValue, 1) * 8 / 5000) - 1 {
                                 Color("1")
                                     .cornerRadius(radius: 3, corners: [.bottomRight, .topRight])
                             }
@@ -60,7 +60,8 @@ struct ProfileSliderView: View {
 struct ProfileSliderView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ProfileSliderView(value: 3)
+            ProfileSliderView()
+                .environmentObject(UserViewModel.init())
                 .previewLayout(.fixed(width: 340, height: 30))
                 .padding(.horizontal)
         }

@@ -8,11 +8,8 @@ struct ProfileView: View {
             VStack {
                 //
                 //coins
-                ProfileHeaderView(
-                    levelImage: .imageName(from: userViewModel.rank),
-                    level: String.rank(from: userViewModel.rank),
-                    coins: userViewModel.coins
-                )
+                ProfileHeaderView()
+                    .environmentObject(userViewModel)
                     .frame(height: 191)
                     .cornerRadius(radius: 35, corners: [.bottomRight, .bottomLeft])
                     .ignoresSafeArea(edges: .top)
@@ -48,11 +45,8 @@ struct ProfileView: View {
                 }
                     .padding(.top, 60)
                     .padding(.horizontal)
-                // 5000 - 7
-                // rankPoints - ?
-                // rankPoints * 7 / 5000
-                ProfileSliderView(value: max($userViewModel.rankPoints.wrappedValue, 1) * 8 / 5000
-                )
+                ProfileSliderView()
+                    .environmentObject(userViewModel)
                     .padding(.top, 10)
                     .padding(.bottom, 24)
                     .padding(.horizontal)
