@@ -42,12 +42,12 @@ struct ChatView: View {
                                         .scaledToFit()
                                         .frame(width: 22, height: 22)
                                 }
-                                MessageBubbleView(bubbleState: .incoming, text: "Привет! Я Макс, буду твоим наставником и помогу с инвестициями. Я буду иногда давать тебе задания, а за каждое правильно выполненное буду начислять баллы.")
+                                TextMessageView(bubbleState: .incoming, text: "Привет! Я Макс, буду твоим наставником и помогу с инвестициями. Я буду иногда давать тебе задания, а за каждое правильно выполненное буду начислять баллы.")
                             }
                         } else {
                             HStack {
                                 Spacer()
-                                MessageBubbleView(bubbleState: .outcoming, text: "Круто! А что за задания?")
+                                TextMessageView(bubbleState: .outcoming, text: "Круто! А что за задания?")
                             }
                         }
                     }

@@ -1,5 +1,5 @@
 //
-//  MessageBubbleView.swift
+//  TextMessageView.swift
 //  HackathonApp
 //
 //  Created by Максим Алексеев  on 09.10.2021.
@@ -7,12 +7,7 @@
 
 import SwiftUI
 
-enum MessageBubbleViewState {
-    case incoming // will be positioned on leading edge
-    case outcoming // will be positioned on trailing edge
-}
-
-struct MessageBubbleView: View {
+struct TextMessageView: View {
     @State var bubbleState: MessageBubbleViewState
     var text: String
     
@@ -26,8 +21,8 @@ struct MessageBubbleView: View {
     }
 }
 
-struct MessageBubbleView_Previews: PreviewProvider {
+struct TextMessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageBubbleView(bubbleState: .incoming, text: "месседж бабл экзампл едрить мадрить и еще какой нибудь текст")
+        TextMessageView(bubbleState: .incoming, text: "месседж бабл экзампл едрить мадрить и еще какой нибудь текст")
     }
 }

@@ -23,8 +23,8 @@ struct MentorBannerView: View {
                 }
                 
                 VStack {
-                    MessageBubbleView(bubbleState: .incoming, text: "Привет, я Макс!")
-                    MessageBubbleView(bubbleState: .outcoming, text: "Привет!")
+                    TextMessageView(bubbleState: .incoming, text: "Привет, я Макс!")
+                    TextMessageView(bubbleState: .outcoming, text: "Привет!")
                         .padding(.leading, 100)
                 }
                 .shadow(color: Color("shadow_1"), radius: 20, x: 0, y: 0)
