@@ -19,6 +19,8 @@
 		886F961F271137930019FE40 /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F961E271137930019FE40 /* MessageBubbleView.swift */; };
 		886F9621271138A90019FE40 /* MentorBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F9620271138A90019FE40 /* MentorBannerView.swift */; };
 		886F96242711487A0019FE40 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F96232711487A0019FE40 /* ChatView.swift */; };
+		886F962627114F590019FE40 /* MessageSuggestionChipsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F962527114F590019FE40 /* MessageSuggestionChipsList.swift */; };
+		886F962827114F740019FE40 /* MessageSuggestionChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F962727114F740019FE40 /* MessageSuggestionChip.swift */; };
 		EDB6402D2710D6210062777F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402C2710D6210062777F /* MainView.swift */; };
 		EDB640302710D63A0062777F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB6402F2710D63A0062777F /* QuizView.swift */; };
 		EDB640322710D6470062777F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB640312710D6470062777F /* ProfileView.swift */; };
@@ -43,6 +45,8 @@
 		886F961E271137930019FE40 /* MessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubbleView.swift; sourceTree = "<group>"; };
 		886F9620271138A90019FE40 /* MentorBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorBannerView.swift; sourceTree = "<group>"; };
 		886F96232711487A0019FE40 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		886F962527114F590019FE40 /* MessageSuggestionChipsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSuggestionChipsList.swift; sourceTree = "<group>"; };
+		886F962727114F740019FE40 /* MessageSuggestionChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSuggestionChip.swift; sourceTree = "<group>"; };
 		EDB6402C2710D6210062777F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EDB6402F2710D63A0062777F /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		EDB640312710D6470062777F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				886F96232711487A0019FE40 /* ChatView.swift */,
+				886F962527114F590019FE40 /* MessageSuggestionChipsList.swift */,
+				886F962727114F740019FE40 /* MessageSuggestionChip.swift */,
 			);
 			path = ChatView;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 				886F961C271136000019FE40 /* MentorView.swift in Sources */,
 				886F961927112EAA0019FE40 /* TestView.swift in Sources */,
 				EDB640402710EFC40062777F /* StoryView.swift in Sources */,
+				886F962827114F740019FE40 /* MessageSuggestionChip.swift in Sources */,
 				886F96042710836C0019FE40 /* ContentView.swift in Sources */,
 				886F96242711487A0019FE40 /* ChatView.swift in Sources */,
 				886F9621271138A90019FE40 /* MentorBannerView.swift in Sources */,
@@ -288,6 +295,7 @@
 				EDB6403A2710EAC10062777F /* CircleProgressBar.swift in Sources */,
 				886F961727112D8D0019FE40 /* TestListView.swift in Sources */,
 				886F9611271126D10019FE40 /* TutorialBooks.swift in Sources */,
+				886F962627114F590019FE40 /* MessageSuggestionChipsList.swift in Sources */,
 				886F96022710836C0019FE40 /* HackathonAppApp.swift in Sources */,
 				886F961F271137930019FE40 /* MessageBubbleView.swift in Sources */,
 				886F9613271128080019FE40 /* TutorialBookRow.swift in Sources */,
