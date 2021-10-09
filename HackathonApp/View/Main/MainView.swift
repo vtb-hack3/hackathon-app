@@ -2,16 +2,22 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        VStack {
-            GreetingsHeaderView()
-                .frame(height: 190)
-            StoriesView()
-                .offset(x: 0, y: -40)
-            MentorView()
-            TutorialBooks()
-            TestListView()
-            Color.white
+        ScrollView {
+            VStack {
+                GreetingsHeaderView()
+                    .frame(height: 190)
+                StoriesView()
+                    .offset(y: -40)
+                    .padding(.bottom, -40)
+                MentorView()
+                Spacer(minLength: 16)
+                TutorialBooks()
+                Spacer(minLength: 32)
+                TestListView()
+                Color.white
+            }
         }
+        .ignoresSafeArea(edges: .top)
     }
 }
 

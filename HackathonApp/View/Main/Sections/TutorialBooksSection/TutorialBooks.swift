@@ -17,19 +17,21 @@ struct TutorialBooks: View {
                 Button("Смотреть все") {
                     
                 }
+                
             }
+            .padding(.horizontal)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(0..<5) { _ in
                         TutorialBookRow()
-                            .frame(width: 117, height: 112, alignment: .leading)
+                            .frame(width: 110, height: 112, alignment: .leading)
                             .cornerRadius(16)
                     }
                 }
+                .padding(.horizontal)
             }
         }
-        .padding()
     }
 }
 

@@ -18,6 +18,7 @@ struct TestListView: View {
                     
                 }
             }
+            .padding(.horizontal)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
@@ -27,9 +28,9 @@ struct TestListView: View {
                             .cornerRadius(16)
                     }
                 }
+                .padding(.horizontal)
             }
         }
-        .padding()
     }
 }
 
