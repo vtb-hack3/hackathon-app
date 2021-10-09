@@ -19,7 +19,7 @@ struct MessageBubbleView: View {
     var body: some View {
         Text(text)
             .padding(10)
-            .background(bubbleState == .incoming ? Color("blue_4") : .white)
+            .background(bubbleState == .incoming ? Color("blue_4") : Color("blue_1"))
             .foregroundColor(bubbleState == .incoming ? .white : .black)
             .cornerRadius(radius: 15, corners: bubbleState == .incoming ? [.topRight, .topLeft, .bottomRight] : [.topRight, .topLeft, .bottomLeft])
         
