@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct QuizSearchTimer: View {    
+struct QuizSearchTimer: View {
+    @EnvironmentObject var viewModel: QuizViewModel
+    
     var body: some View {
         VStack {
             Text("Поиск игрока")
                 .font(.system(size: 17))
                 .fontWeight(.regular)
                 .foregroundColor(.white)
-            Text("00:30")
+            Text("\($viewModel.matchmakingSeconds.wrappedValue ?? 0)")
                 .font(.system(size: 52))
                 .fontWeight(.bold)
                 .foregroundColor(Color("blue_6"))
@@ -28,5 +30,6 @@ struct QuizSearchTimer: View {
 struct QuizSearchTimer_Previews: PreviewProvider {
     static var previews: some View {
         QuizSearchTimer()
+            .environmentObject(QuizViewModel())
     }
 }

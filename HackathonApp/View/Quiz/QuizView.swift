@@ -15,6 +15,7 @@ struct Quiz {
 }
 
 struct QuizView: View {
+    @EnvironmentObject var viewModel: QuizViewModel
     let quiz: Quiz
     
     var body: some View {
@@ -24,7 +25,7 @@ struct QuizView: View {
                     .frame(height: 191)
                     .cornerRadius(radius: 35, corners: [.bottomRight, .bottomLeft])
                     .ignoresSafeArea(edges: .top)
-                QuestionView(question: quiz.question)
+                QuestionView(question: $viewModel.question.wrappedValue?.question ?? "")
                     .cornerRadius(16)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal)
@@ -46,6 +47,7 @@ struct QuizView: View {
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
         QuizView(quiz: quizMock)
+            .environmentObject(QuizViewModel())
     }
 }
 
