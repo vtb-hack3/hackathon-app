@@ -131,26 +131,28 @@ final class QuizViewModel: ObservableObject {
                     self.questionProgressSec = questionProgressSec + 1
                 } else {
                     self.questionProgressSec = 0
-                    self.gameTimer?.invalidate()
-                    self.gameTimer = nil
-                    self.pauseBetweenQuizes()
                 }
+            } else {
+                self.questionProgressSec = 0
             }
         }
     }
 
     private func pauseBetweenQuizes() {
         if isLocal {
-            pauseTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] timer in
+            pauseTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
                 guard let self = self else { return }
                 if let pauseSec = self.pauseSec {
-                    if pauseSec < 3 {
+                    if pauseSec < 2 {
                         self.pauseSec = pauseSec + 1
                     } else {
                         self.pauseSec = nil
                         self.pauseTimer?.invalidate()
+                        self.pauseTimer = nil
                         self.beginGameTimer()
                     }
+                } else {
+                    self.pauseSec = 1
                 }
             }
         }
