@@ -12,6 +12,11 @@ struct MainView: View {
                 Image("open_broker")
                     .resizable()
                     .scaledToFit()
+                    .onTapGesture {
+                        if let url = URL(string: "https://broker.vtb.ru/login/vtbinvest/") {
+                            UIApplication.shared.open(url)
+                        }
+                    }
                 Spacer(minLength: 16)
                 TutorialBooks()
                 Spacer(minLength: 32)
