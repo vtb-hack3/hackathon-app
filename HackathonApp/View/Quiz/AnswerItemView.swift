@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Answer: Codable {
     let id: Int
-    let text: String
-    let is_right: Bool
+    var text: String
+    var is_right: Bool
     let description: String?
 }
 
@@ -24,9 +24,9 @@ struct AnswerItemView: View {
             ZStack {
                 ZStack {
                     Color(
-                        didAnswer ?  (answer.is_right ? "corect_answer" : "incorect_answer") : "blue_1"
+                        didAnswer ?  ($answer.is_right.wrappedValue ? "corect_answer" : "incorect_answer") : "blue_1"
                     )
-                    Text(answer.text)
+                    Text($answer.text.wrappedValue)
                         .padding(EdgeInsets(top: 14, leading: 12, bottom: 14, trailing: 12))
                 }
                 .onTapGesture {

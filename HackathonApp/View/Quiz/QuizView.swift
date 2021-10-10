@@ -34,12 +34,7 @@ struct QuizView: View {
                         .offset(y: -100)
                         .padding(.bottom, -100)
                         .shadow(color: .black.opacity(0.3), radius: 16, x: 0, y: 10)
-                    AnswersView(
-                        answers: .init(
-                            answers: quizViewModel.quiz!.answers,
-                            type: quizViewModel.quiz!.answers.count == 4 ? .puzzle : .list
-                        )
-                    )
+                    AnswersView()
                         .environmentObject(quizViewModel)
                     ProgressBar(
                         value: .constant(
