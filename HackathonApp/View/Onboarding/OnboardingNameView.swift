@@ -76,6 +76,8 @@ struct OnboardingNameView: View {
                         .onTapGesture {
                             userViewModel.name = name
                             userViewModel.pictureId = selectedIndex ?? 0
+                            UserDefaults.standard.set(name, forKey: "name")
+                            UserDefaults.standard.set(selectedIndex, forKey: "pictureId")
                             UserDefaults.isFirstLauch = false
                             userViewModel.isFirstLauch = false
                         }

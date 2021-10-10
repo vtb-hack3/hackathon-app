@@ -34,7 +34,6 @@ struct OnboardingView: View {
         ZStack {
             Color("blue_1")
             VStack {
-
                 if onboardingModels[modelIndex].description != "" {
                     VStack(spacing: 12) {
                         Text(onboardingModels[modelIndex].question)
@@ -173,6 +172,7 @@ struct OnboardingView: View {
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView(onboardingModels: mockOnboardingData)
+            .environmentObject(UserViewModel())
     }
 }
 
