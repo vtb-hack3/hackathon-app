@@ -83,30 +83,31 @@ final class QuizViewModel: ObservableObject {
     @Published var quiz: Quiz? = localQuizzes[0]
     @Published var questionProgressSec: Int?
     @Published var pauseSec: Int?
-    @Published var opponent: Opponent?
+    @Published var opponent: User?
     @Published var myAnswerIndex: Int?
     @Published var opponentAnswerIndex: Int?
     @Published var matchmakingSeconds: Int?
     @Published var finished: Bool = false
     @Published var isConnected: Bool = false
 
-    private var quizzes: [Quiz] = []
+    private var quizzes: [Quiz] = [] //
     private var currentQuizIndex: Int = 0
 
     private var botService: BotService?
+    private var networkService: NetworkService = NetworkService()
 
     private var isLocal: Bool { botService != nil }
 
     private var gameTimer: Timer?
     private var pauseTimer: Timer?
 
-    func getOpponent(rank: UserViewModel.Rank) -> Opponent {
+    func getOpponent(rank: UserViewModel.Rank) -> User {
         if let opponent = opponent {
             return opponent
         } else {
             let botService = BotService(rank: rank)
             self.botService = botService
-            let opponent = Opponent(name: botService.name, pictureId: botService.imageId)
+            let opponent = User(name: botService.name, pictureId: botService.imageId)
             self.opponent = opponent
             self.quizzes = localQuizzes
             self.quiz = localQuizzes[0]
@@ -154,6 +155,14 @@ final class QuizViewModel: ObservableObject {
             }
         }
     }
+    func startMatchmaking() {
+        let id = UserDefaults.standard.integer(forKey: "userId")
+        networkService.searchGame(userId: id) { game in
+//            opponent?.name = game.message.room.opponent.name
+//            opponent?.pictureId = game.message.room.opponent.pictureId
+//            game.message.room
+        }
+    }
 
     func cancelMatchmaking() {
     }
@@ -164,6 +173,12 @@ final class QuizViewModel: ObservableObject {
     func leave() {
     }
 
+    
+    func nextQuestion() {
+        currentQuizIndex += 1
+        quiz = quizzes[currentQuizIndex]
+    }
+    
     private func resetQuestionStats() {
         self.opponentAnswerIndex = nil
         self.myAnswerIndex = nil
@@ -175,11 +190,6 @@ final class QuizViewModel: ObservableObject {
         self.gameTimer = nil
         self.pauseTimer?.invalidate()
         self.pauseTimer = nil
-    }
-
-    private func nextQuestion() {
-        currentQuizIndex += 1
-        quiz = quizzes[currentQuizIndex]
     }
 
     deinit {

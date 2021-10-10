@@ -10,7 +10,7 @@ import Foundation
 class NetworkService {
     private var baseUrl = "https://api.vtb-hack.ru/"
     
-    func searchGame(with userId: Int, completionHandler: @escaping (Game) -> ()) {
+    func searchGame(userId: Int, completionHandler: @escaping (Game) -> ()) {
         guard let url = URL(string: baseUrl + "game/room/\(userId)") else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -27,7 +27,7 @@ class NetworkService {
         }.resume()
     }
     
-    func createUser(name: String, pictureId: Int, coins: Int, completion: @escaping () -> ()) {
+    func createUser(name: String, pictureId: Int, coins: Int, completion: @escaping (CreateUserResponse) -> ()) {
         guard let url = URL(string: baseUrl + "user/create/") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -46,7 +46,10 @@ class NetworkService {
             }
             
             guard let data = data else { return }
-            print(String(data: data, encoding: .utf8))
+            if let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) {
+                let response = try! JSONDecoder().decode(CreateUserResponse.self, from: data)
+                completion(response)
+            }
         }.resume()
     }
     

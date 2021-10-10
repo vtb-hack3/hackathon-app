@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Quiz: Decodable {
+struct Quiz: Codable {
     let id: Int
     let text: String
     let answers: [Answer]

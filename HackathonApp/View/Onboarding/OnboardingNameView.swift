@@ -74,6 +74,7 @@ struct OnboardingNameView: View {
                         .cornerRadius(12)
                         .padding(.bottom, 30)
                         .onTapGesture {
+                            
                             userViewModel.name = name
                             userViewModel.pictureId = selectedIndex ?? 0
                             UserDefaults.standard.set(name, forKey: "name")
