@@ -11,24 +11,11 @@ struct MentorBannerView: View {
     var body: some View {
         ZStack {
             Color("blue_1")
-            
-            HStack(spacing: 0) {
-                VStack {
-                    Spacer()
-                    Image("MentorImage")
+                    Image("open_broker")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 97, height: 81)
-                        .padding(.leading, 16)
-                }
-                
-                VStack {
-                    TextMessageView(bubbleState: .incoming, text: "Привет, я Макс!")
-                    TextMessageView(bubbleState: .outcoming, text: "Привет!")
-                        .padding(.leading, 100)
-                }
-                .shadow(color: Color("shadow_1"), radius: 20, x: 0, y: 0)
-            }
+//                        .frame(width: 97, height: 81)
+//                        .padding(.leading, 16)
         }
     }
 }

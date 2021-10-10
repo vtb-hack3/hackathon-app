@@ -8,25 +8,40 @@
 import SwiftUI
 
 struct TestView: View {
+
+    @State var text: String
+
+    func colorForIndex(_ index: Int) -> Color {
+        let color: Color
+        if index == 0 {
+            color = Color("blue_4")
+        } else if index == 1 {
+            color = Color("blue_1")
+        } else {
+            color = Color("blue_1")
+        }
+        return color
+    }
+
     var body: some View {
         ZStack {
-            Color("blue_5")
+            Color(.white)
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("С чего мне начать?")
+                    Text(text)
                         .font(.system(size: 15, weight: .medium, design: .default))
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("blue_7"))
                     
                     HStack {
                         Text("Уровень")
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("blue_4"))
                             .font(.system(size: 13, weight: .regular, design: .default))
                         
                         HStack(spacing: 3) {
                             ForEach(0..<3) { index in
                                 Circle()
                                     .frame(width: 8, height: 8)
-                                    .foregroundColor( index == 0 ? .white : Color("blue_3"))
+                                    .foregroundColor(colorForIndex(index))
                             }
                         }
                     }
@@ -38,10 +53,10 @@ struct TestView: View {
             }
             
             ZStack {
-                Color.white
+                Color("blue_1")
                 Text("новичок")
                     .font(.system(size: 13, weight: .regular, design: .default))
-                    .foregroundColor(Color("blue_5"))
+                    .foregroundColor(Color("blue_8"))
             }
             .frame(width: 67, height: 24)
             .cornerRadius(6)
@@ -52,7 +67,7 @@ struct TestView: View {
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
-        TestView()
+        TestView(text: "С чего мне начать?")
             .previewLayout(.fixed(width: 211, height: 114))
     }
 }

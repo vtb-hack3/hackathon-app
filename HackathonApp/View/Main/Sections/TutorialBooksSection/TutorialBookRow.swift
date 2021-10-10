@@ -8,16 +8,25 @@
 import SwiftUI
 
 struct TutorialBookRow: View {
+    struct Model {
+        let textColor: Color
+        let bgColor: Color
+        let text: String
+        let image: Image
+    }
+
+    @State var model: Model
+
     var body: some View {
         ZStack {
-            Color("blue_9")
+            model.bgColor
             VStack(alignment: .leading) {
-                Text("Биткоин и все о нем")
-                    .foregroundColor(.white)
+                Text(model.text)
+                    .foregroundColor(model.textColor)
                     .lineLimit(100)
-                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
+                    .padding(EdgeInsets(top: 10, leading: 6, bottom: 0, trailing: 6))
                     .font(.system(size: 13))
-                Image("BitcoinImage")
+                model.image
                     .resizable()
                     .frame(width: 45, height: 45)
                     .shadow(color: .init("blue_8"), radius: 56, x: 0, y: 0)
@@ -28,6 +37,13 @@ struct TutorialBookRow: View {
 
 struct TutorialBookRow_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialBookRow()
+        TutorialBookRow(
+            model: .init(
+                textColor: .white,
+                bgColor: Color("blue_9"),
+                text: "Биткоин и все о нем",
+                image: Image("BitcoinImage")
+            )
+        )
     }
 }

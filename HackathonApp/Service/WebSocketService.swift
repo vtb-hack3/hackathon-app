@@ -10,7 +10,7 @@ final class WebSocketService: NSObject, ObservableObject, URLSessionWebSocketDel
     // MARK: - Connection
 
     func connect() {
-        let url = URL(string: "ws://127.0.0.1:8080/chat")!
+        let url = URL(string: "https://socket.vtb-hack.ru/")!
         webSocketTask = URLSession.shared.webSocketTask(with: url)
         webSocketTask?.delegate = self
         webSocketTask?.receive(completionHandler: onReceive)
@@ -75,6 +75,7 @@ final class WebSocketService: NSObject, ObservableObject, URLSessionWebSocketDel
         webSocketTask: URLSessionWebSocketTask,
         didOpenWithProtocol protocol: String?
     ) {
+        print("Did connect")
         isConnected = true
     }
 
@@ -84,6 +85,7 @@ final class WebSocketService: NSObject, ObservableObject, URLSessionWebSocketDel
         didCloseWith closeCode: URLSessionWebSocketTask.CloseCode,
         reason: Data?
     ) {
+        print("Did disconnect")
         isConnected = false
     }
 }

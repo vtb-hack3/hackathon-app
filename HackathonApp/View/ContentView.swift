@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var userViewModel: UserViewModel
-
+    @StateObject var quizViewModel = QuizViewModel()
     var body: some View {
         TabView {
             MainView()
@@ -24,6 +24,7 @@ struct ContentView: View {
                     Text("Викторина")
                 }
                 .environmentObject(userViewModel)
+                .environmentObject(quizViewModel)
             ProfileView()
                 .tabItem {
                     Image("ic_profile")
