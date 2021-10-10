@@ -72,10 +72,14 @@ struct ProfileView: View {
                     ZStack {
                         Color.white
                         HStack {
-                            Text("Поделиться с друзьями")
-                                .foregroundColor(Color.black)
-                            Spacer()
-                            Image("share")
+                            Button(action: actionSheet) {
+                                HStack {
+                                    Text("Поделиться с друзьями")
+                                        .foregroundColor(Color.black)
+                                    Spacer()
+                                    Image("share")
+                                }.padding()
+                            }
                         }
                         .padding(.horizontal)
                     }
@@ -105,6 +109,12 @@ struct ProfileView: View {
             return 0
         }
     }
+
+    private func actionSheet() {
+           guard let urlShare = URL(string: "https://broker.vtb.ru/login/vtbinvest/") else { return }
+           let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+           UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+       }
 
     private func createlevelView(
         imageName: String,
