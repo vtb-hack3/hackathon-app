@@ -3,7 +3,9 @@ import SwiftUI
 struct QuizAboutToStartView: View {
     @EnvironmentObject var quizViewModel: QuizViewModel
     @EnvironmentObject var userViewModel: UserViewModel
-    @State var opponent: Opponent
+
+    @State var opponent: User
+
     @State var myPictureId: Int
     @State var myName: String
 
@@ -74,6 +76,7 @@ struct QuizAboutToStartView: View {
                 seconds -= 1
             } else {
                 self.timer.upstream.connect().cancel()
+                self.quizViewModel.beginGame()
                 openNextScreen = true
             }
         }

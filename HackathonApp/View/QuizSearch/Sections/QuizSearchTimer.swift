@@ -13,7 +13,7 @@ struct QuizSearchTimer: View {
     
     var body: some View {
         VStack {
-            Text("Поиск игрока")
+            Text("Поиск игрока...")
                 .font(.system(size: 17))
                 .fontWeight(.regular)
                 .foregroundColor(.white)

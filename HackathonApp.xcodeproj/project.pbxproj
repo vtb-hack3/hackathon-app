@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8819011A2712A7AB00DC9567 /* TotalAnswersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881901192712A7AA00DC9567 /* TotalAnswersResponse.swift */; };
+		8819011C2712B2DD00DC9567 /* CreateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8819011B2712B2DD00DC9567 /* CreateUserResponse.swift */; };
 		884116B22712979300B11CD5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884116B12712979300B11CD5 /* Game.swift */; };
 		884116B4271298DD00B11CD5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884116B3271298DD00B11CD5 /* NetworkService.swift */; };
 		886F96022710836C0019FE40 /* HackathonAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F96012710836C0019FE40 /* HackathonAppApp.swift */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		881901192712A7AA00DC9567 /* TotalAnswersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAnswersResponse.swift; sourceTree = "<group>"; };
+		8819011B2712B2DD00DC9567 /* CreateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserResponse.swift; sourceTree = "<group>"; };
 		884116B12712979300B11CD5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		884116B3271298DD00B11CD5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		886F95FE2710836C0019FE40 /* HackathonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackathonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				881901192712A7AA00DC9567 /* TotalAnswersResponse.swift */,
+				8819011B2712B2DD00DC9567 /* CreateUserResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				886F9632271159740019FE40 /* TaskMessageView.swift in Sources */,
 				ED2C4B7C27122B970014D7DD /* ProfileBurseView.swift in Sources */,
 				884116B22712979300B11CD5 /* Game.swift in Sources */,
+				8819011C2712B2DD00DC9567 /* CreateUserResponse.swift in Sources */,
 				EDB6404A2711F79B0062777F /* WebSocketService.swift in Sources */,
 				88E1A7C32711CC8A00297DB1 /* QuizResultHeader.swift in Sources */,
 				88E1A7BC2711B5A400297DB1 /* MainQuizView.swift in Sources */,

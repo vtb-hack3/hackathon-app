@@ -82,34 +82,90 @@ final class QuizViewModel: ObservableObject {
 
     @Published var quiz: Quiz? = localQuizzes[0]
     @Published var questionProgressSec: Int?
-    @Published var opponent: Opponent?
+    @Published var pauseSec: Int?
+    @Published var opponent: User?
     @Published var myAnswerIndex: Int?
     @Published var opponentAnswerIndex: Int?
     @Published var matchmakingSeconds: Int?
     @Published var finished: Bool = false
     @Published var isConnected: Bool = false
 
-    private var quizzes: [Quiz] = []
+    private var quizzes: [Quiz] = [] //
     private var currentQuizIndex: Int = 0
 
     private var botService: BotService?
+    private var networkService: NetworkService = NetworkService()
 
-    func getOpponent(rank: UserViewModel.Rank) -> Opponent {
+    private var isLocal: Bool { botService != nil }
+
+    private var gameTimer: Timer?
+    private var pauseTimer: Timer?
+
+    func getOpponent(rank: UserViewModel.Rank) -> User {
         if let opponent = opponent {
             return opponent
         } else {
             let botService = BotService(rank: rank)
             self.botService = botService
-            let opponent = Opponent(name: botService.name, pictureId: botService.imageId)
+            let opponent = User(name: botService.name, pictureId: botService.imageId)
             self.opponent = opponent
             self.quizzes = localQuizzes
             self.quiz = localQuizzes[0]
             self.currentQuizIndex = 0
+            self.questionProgressSec = 0
             return opponent
         }
     }
 
+    func beginGame() {
+        if isLocal {
+            beginGameTimer()
+        }
+    }
+
+    private func beginGameTimer() {
+        gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            guard let self = self else { return }
+            if let questionProgressSec = self.questionProgressSec {
+                if questionProgressSec < 15 {
+                    self.questionProgressSec = questionProgressSec + 1
+                } else {
+                    self.questionProgressSec = 0
+                    self.nextQuestion()
+                }
+            } else {
+                self.questionProgressSec = 0
+            }
+        }
+    }
+
+    private func pauseBetweenQuizes() {
+        if isLocal {
+            pauseTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+                guard let self = self else { return }
+                if let pauseSec = self.pauseSec {
+                    if pauseSec < 2 {
+                        self.pauseSec = pauseSec + 1
+                    } else {
+                        self.pauseSec = nil
+                        self.pauseTimer?.invalidate()
+                        self.pauseTimer = nil
+                        self.beginGameTimer()
+                    }
+                } else {
+                    self.pauseSec = 1
+                }
+            }
+        }
+    }
+    
     func startMatchmaking() {
+        let id = UserDefaults.standard.integer(forKey: "userId")
+        networkService.searchGame(userId: id) { game in
+            DispatchQueue.main.async {
+                self.opponent = game.message.room.opponent
+            }
+        }
     }
 
     func cancelMatchmaking() {
@@ -119,8 +175,18 @@ final class QuizViewModel: ObservableObject {
     }
 
     func leave() {
+
     }
 
+    func nextQuestion() {
+        if currentQuizIndex >= quizzes.count - 1 {
+            resetQuestionStats()
+        } else {
+            currentQuizIndex += 1
+            quiz = quizzes[currentQuizIndex]
+        }
+    }
+    
     private func resetQuestionStats() {
         self.opponentAnswerIndex = nil
         self.myAnswerIndex = nil
@@ -128,10 +194,13 @@ final class QuizViewModel: ObservableObject {
         self.quiz = nil
         self.botService = nil
         self.opponent = nil
+        self.gameTimer?.invalidate()
+        self.gameTimer = nil
+        self.pauseTimer?.invalidate()
+        self.pauseTimer = nil
     }
 
-    private func nextQuestion() {
-        currentQuizIndex += 1
-        quiz = quizzes[currentQuizIndex]
+    deinit {
+        resetQuestionStats()
     }
 }

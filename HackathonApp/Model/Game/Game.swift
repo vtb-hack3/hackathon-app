@@ -20,8 +20,8 @@ struct Message: Codable {
 // MARK: - Room
 struct Room: Codable {
     let id: Int
-    let questions: [GameQuestion]
-    let creator, opponent: Creator
+    let questions: [Quiz]
+    let creator, opponent: User
     let startedAt: String
     let finishedAt: String
     let isJoinable: Bool
@@ -33,36 +33,36 @@ struct Room: Codable {
         case isJoinable = "is_joinable"
     }
 }
+//
+//// MARK: - Creator
+//struct Creator: Codable {
+//    let id: Int
+//    let name, status: String
+//    let pictureID, coins: Int
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id, name, status
+//        case pictureID = "picture_id"
+//        case coins
+//    }
+//}
 
-// MARK: - Creator
-struct Creator: Codable {
-    let id: Int
-    let name, status: String
-    let pictureID, coins: Int
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, status
-        case pictureID = "picture_id"
-        case coins
-    }
-}
-
-// MARK: - GameQuestion
-struct GameQuestion: Codable {
-    let id: Int
-    let answers: [GameAnswer]
-    let text: String
-}
+//// MARK: - GameQuestion
+//struct GameQuestion: Codable {
+//    let id: Int
+//    let answers: [Answer]
+//    let text: String
+//}
 
 // MARK: - GameAnswer
-struct GameAnswer: Codable {
-    let id: Int
-    let text: String
-    let isRight: Bool
-
-    enum CodingKeys: String, CodingKey {
-        case id, text
-        case isRight = "is_right"
-    }
-}
+//struct GameAnswer: Codable {
+//    let id: Int
+//    let text: String
+//    let isRight: Bool
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id, text
+//        case isRight = "is_right"
+//    }
+//}
 

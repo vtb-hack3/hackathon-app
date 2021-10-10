@@ -45,7 +45,7 @@ struct QuizSearchView: View {
                             .padding(.bottom, -100)
                             .environmentObject(userViewModel)
                         QuizSearchTimer(seconds: $seconds)
-                        Text("Поиск игрока")
+                        Text("Поиск игрока...")
                             .foregroundColor(Color("blue_9"))
                             .font(.system(size: 20))
                         Spacer()
@@ -66,6 +66,7 @@ struct QuizSearchView: View {
                 }
                 .edgesIgnoringSafeArea(.top)
                 .onReceive(timer) { input in
+                    viewModel.startMatchmaking()
                     if seconds > 0 {
                         seconds -= 1
                     } else  {
