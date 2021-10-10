@@ -15,7 +15,7 @@ struct Quiz: Decodable {
 
 struct QuizView: View {
     @EnvironmentObject var userViewModel: UserViewModel
-    @EnvironmentObject var viewModel: QuizViewModel
+    @EnvironmentObject var quizViewModel: QuizViewModel
 
     @State var progressValue: Float = 0.0
     
@@ -26,7 +26,7 @@ struct QuizView: View {
                     .frame(height: 191)
                     .cornerRadius(radius: 35, corners: [.bottomRight, .bottomLeft])
                     .ignoresSafeArea(edges: .top)
-                QuestionView(question: $viewModel.quiz.wrappedValue?.text ?? "")
+                QuestionView(question: $quizViewModel.quiz.wrappedValue?.text ?? "")
                     .cornerRadius(16)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal)
@@ -35,27 +35,23 @@ struct QuizView: View {
                     .shadow(color: .black.opacity(0.3), radius: 16, x: 0, y: 10)
                 AnswersView(
                     answers: .init(
-                        answers: viewModel.quiz!.answers,
-                        type: viewModel.quiz!.answers.count == 4 ? .puzzle : .list
+                        answers: quizViewModel.quiz!.answers,
+                        type: quizViewModel.quiz!.answers.count == 4 ? .puzzle : .list
                     )
                 )
-                    .environmentObject(viewModel)
-                ProgressBar(value: $progressValue)
+                    .environmentObject(quizViewModel)
+                ProgressBar(
+                    value: .constant(
+                        Float(
+                            $quizViewModel.questionProgressSec.wrappedValue ?? 0
+                        ) / 15.0
+                    )
+                )
                     .frame(height: 14)
                     .padding()
             }
         }
         .navigationBarHidden(true)
-    }
-
-    func startProgressBar() {
-        for _ in 0...80 {
-            self.progressValue += 0.015
-        }
-    }
-
-    func resetProgressBar() {
-        self.progressValue = 0.0
     }
 }
 

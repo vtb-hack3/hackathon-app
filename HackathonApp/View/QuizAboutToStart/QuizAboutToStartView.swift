@@ -74,6 +74,7 @@ struct QuizAboutToStartView: View {
                 seconds -= 1
             } else {
                 self.timer.upstream.connect().cancel()
+                self.quizViewModel.beginGame()
                 openNextScreen = true
             }
         }

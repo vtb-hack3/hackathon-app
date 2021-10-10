@@ -94,6 +94,10 @@ final class QuizViewModel: ObservableObject {
 
     private var botService: BotService?
 
+    private var isLocal: Bool { botService != nil }
+
+    private var gameTimer: Timer?
+
     func getOpponent(rank: UserViewModel.Rank) -> Opponent {
         if let opponent = opponent {
             return opponent
@@ -105,11 +109,23 @@ final class QuizViewModel: ObservableObject {
             self.quizzes = localQuizzes
             self.quiz = localQuizzes[0]
             self.currentQuizIndex = 0
+            self.questionProgressSec = 0
             return opponent
         }
     }
 
-    func startMatchmaking() {
+    func beginGame() {
+        if isLocal {
+            gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                if let questionProgressSec = self.questionProgressSec {
+                    if questionProgressSec < 15 {
+                        self.questionProgressSec = questionProgressSec + 1
+                    } else {
+                        self.questionProgressSec = 0
+                    }
+                }
+            }
+        }
     }
 
     func cancelMatchmaking() {
@@ -128,10 +144,16 @@ final class QuizViewModel: ObservableObject {
         self.quiz = nil
         self.botService = nil
         self.opponent = nil
+        self.gameTimer?.invalidate()
+        self.gameTimer = nil
     }
 
     private func nextQuestion() {
         currentQuizIndex += 1
         quiz = quizzes[currentQuizIndex]
+    }
+
+    deinit {
+        resetQuestionStats()
     }
 }
