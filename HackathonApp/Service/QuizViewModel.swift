@@ -89,6 +89,8 @@ final class QuizViewModel: ObservableObject {
     @Published var matchmakingSeconds: Int?
     @Published var finished: Bool = false
     @Published var isConnected: Bool = false
+    
+    @Published var selectedAnswers: [Answer] = [] 
 
     private var quizzes: [Quiz] = [] //
     private var currentQuizIndex: Int = 0

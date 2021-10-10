@@ -19,7 +19,7 @@ struct Answers {
 struct AnswersView: View {
     @State var answers: Answers
     @EnvironmentObject var quizViewModel: QuizViewModel
-
+    
     var body: some View {
         ScrollView {
             Spacer(minLength: 40)
@@ -27,11 +27,35 @@ struct AnswersView: View {
                 VStack(spacing: 16) {
                     HStack(spacing: 16) {
                         AnswerItemView(answer: answers.answers[0])
+                            .onTapGesture {
+                                if quizViewModel.selectedAnswers.count > 0 {
+                                    $quizViewModel.selectedAnswers.wrappedValue.removeLast()
+                                    quizViewModel.selectedAnswers.append(answers.answers[0])
+                                }
+                            }
                         AnswerItemView(answer: answers.answers[1])
+                            .onTapGesture {
+                                if quizViewModel.selectedAnswers.count > 0 {
+                                    $quizViewModel.selectedAnswers.wrappedValue.removeLast()
+                                    quizViewModel.selectedAnswers.append(answers.answers[1])
+                                }
+                            }
                     }
                     HStack(spacing: 16) {
                         AnswerItemView(answer: answers.answers[2])
+                            .onTapGesture {
+                                if quizViewModel.selectedAnswers.count > 0 {
+                                    $quizViewModel.selectedAnswers.wrappedValue.removeLast()
+                                    quizViewModel.selectedAnswers.append(answers.answers[2])
+                                }
+                            }
                         AnswerItemView(answer: answers.answers[3])
+                            .onTapGesture {
+                                if quizViewModel.selectedAnswers.count > 0 {
+                                    $quizViewModel.selectedAnswers.wrappedValue.removeLast()
+                                    quizViewModel.selectedAnswers.append(answers.answers[3])
+                                }
+                            }
                     }
                 }
             }
