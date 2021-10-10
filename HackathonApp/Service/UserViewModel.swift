@@ -8,6 +8,7 @@ final class UserViewModel: ObservableObject {
     @Published var rank: Rank = .expirienced
     @Published var coins: Int = 600
     @Published var isFirstLauch: Bool
+    @Published var userId: Int = 0
     
     private var networkService = NetworkService()
 
@@ -26,13 +27,10 @@ final class UserViewModel: ObservableObject {
         refreshRank()
     }
     
-    func createUser(name: String, pictureId: Int) {
-//        networkService.createUser(name: name, pictureId: pictureId, coins: 0) {
-//
-//        }
+    func createUser() {
         networkService.createUser(name: name, pictureId: pictureId, coins: 0) { response in
-            let userId = response.message.id
-            UserDefaults.standard.set(userId, forKey: "userId")
+            self.userId = response.message.id ?? 0
+            UserDefaults.standard.set(self.userId, forKey: "userId")
         }
     }
 

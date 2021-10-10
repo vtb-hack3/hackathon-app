@@ -157,12 +157,11 @@ final class QuizViewModel: ObservableObject {
             }
         }
     }
+    
     func startMatchmaking() {
         let id = UserDefaults.standard.integer(forKey: "userId")
         networkService.searchGame(userId: id) { game in
-//            opponent?.name = game.message.room.opponent.name
-//            opponent?.pictureId = game.message.room.opponent.pictureId
-//            game.message.room
+            self.opponent = game.message.room.opponent
         }
     }
 

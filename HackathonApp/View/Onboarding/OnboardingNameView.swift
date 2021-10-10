@@ -73,10 +73,10 @@ struct OnboardingNameView: View {
                         .background(Color("blue_5"))
                         .cornerRadius(12)
                         .padding(.bottom, 30)
-                        .onTapGesture {
-                            
+                        .onTapGesture {                            
                             userViewModel.name = name
                             userViewModel.pictureId = selectedIndex ?? 0
+                            userViewModel.createUser()
                             UserDefaults.standard.set(name, forKey: "name")
                             UserDefaults.standard.set(selectedIndex, forKey: "pictureId")
                             UserDefaults.isFirstLauch = false
