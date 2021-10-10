@@ -21,7 +21,7 @@ struct Message: Codable {
 struct Room: Codable {
     let id: Int
     let questions: [Quiz]
-    let creator, opponent: Creator
+    let creator, opponent: User
     let startedAt: String
     let finishedAt: String
     let isJoinable: Bool
@@ -33,19 +33,19 @@ struct Room: Codable {
         case isJoinable = "is_joinable"
     }
 }
-
-// MARK: - Creator
-struct Creator: Codable {
-    let id: Int
-    let name, status: String
-    let pictureID, coins: Int
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, status
-        case pictureID = "picture_id"
-        case coins
-    }
-}
+//
+//// MARK: - Creator
+//struct Creator: Codable {
+//    let id: Int
+//    let name, status: String
+//    let pictureID, coins: Int
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id, name, status
+//        case pictureID = "picture_id"
+//        case coins
+//    }
+//}
 
 //// MARK: - GameQuestion
 //struct GameQuestion: Codable {

@@ -66,6 +66,7 @@ struct QuizSearchView: View {
                 }
                 .edgesIgnoringSafeArea(.top)
                 .onReceive(timer) { input in
+                    viewModel.startMatchmaking()
                     if seconds > 0 {
                         seconds -= 1
                     } else  {
