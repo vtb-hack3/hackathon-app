@@ -25,8 +25,8 @@ struct ProfileHeaderView: View {
                     .cornerRadius(26)
                     .frame(width: 130, height: 41)
                     Image(.imageName(from: userViewModel.rank))
-                        .offset(y: -75)
-                        .padding(.bottom, -75)
+                        .offset(y: -78)
+                        .padding(.bottom, -77)
                 }
                 Spacer()
                 VStack {
@@ -40,7 +40,7 @@ struct ProfileHeaderView: View {
                     .cornerRadius(26)
                     .frame(width: 130, height: 41)
                     Image("coin")
-                        .offset(y: -75)
+                        .offset(y: -78)
                         .padding(.bottom, -75)
                 }
             }
