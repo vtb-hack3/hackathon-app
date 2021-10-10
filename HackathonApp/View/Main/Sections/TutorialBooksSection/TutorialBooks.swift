@@ -18,7 +18,7 @@ struct TutorialBooks: View {
         ),
         .init(
             textColor: .black,
-            bgColor: Color("blue_1"),
+            bgColor: .white,
             text: "Первые шаги на бирже",
             image: Image("a8a319b8cdf20d891e15b0ffa3f52859 1")
         ),
@@ -49,6 +49,8 @@ struct TutorialBooks: View {
                         TutorialBookRow(model: self.tutorialModels[index])
                             .frame(width: 135, height: 130, alignment: .leading)
                             .cornerRadius(16)
+                            .padding(.vertical)
+                            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 0)
                     }
                 }
                 .padding(.horizontal)
