@@ -39,6 +39,7 @@ struct OnbordingSpendingView: View {
                     .cornerRadius(12)
                     .padding(.bottom, 30)
                     .onTapGesture {
+                        userViewModel.addRankPoints(60 * (100 - Int(celsius)))
                         openNextScreen.toggle()
                     }
             }
@@ -70,6 +71,7 @@ struct OnbordingSpendingView: View {
 struct OnbordingSpendingView_Previews: PreviewProvider {
     static var previews: some View {
         OnbordingSpendingView()
+            .environmentObject(UserViewModel())
     }
 }
 

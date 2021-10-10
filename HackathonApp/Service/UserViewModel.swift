@@ -4,7 +4,7 @@ import Foundation
 final class UserViewModel: ObservableObject {
     @Published var name: String = "User"
     @Published var pictureId: Int = 0
-    @Published var rankPoints: Int = 4500
+    @Published var rankPoints: Int = 0
     @Published var rank: Rank = .expirienced
     @Published var coins: Int = 600
     @Published var isFirstLauch: Bool
@@ -26,6 +26,7 @@ final class UserViewModel: ObservableObject {
 
     func addRankPoints(_ points: Int) {
         rankPoints += points
+        UserDefaults.standard.set(rankPoints, forKey: "rankPoints")
         refreshRank()
     }
 
