@@ -49,4 +49,27 @@ class NetworkService {
             print(String(data: data, encoding: .utf8))
         }.resume()
     }
+    
+    func passAnswer(userId: Int, answerId: Int, questionId: Int, roomId: Int) {
+        guard let url = URL(string: baseUrl + "game/room/\(roomId)/answer/") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let parametrs: [String: Any] = [
+            "user_id": userId,
+            "question_id": questionId,
+            "answer_id": answerId,
+        ]
+        
+        request.httpBody = try! JSONSerialization.data(withJSONObject: parametrs, options: .prettyPrinted)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let data = data else { return }
+            print(String(data: data, encoding: .utf8))
+        }.resume()
+    }
 }
