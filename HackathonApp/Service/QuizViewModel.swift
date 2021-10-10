@@ -82,6 +82,7 @@ final class QuizViewModel: ObservableObject {
 
     @Published var quiz: Quiz? = localQuizzes[0]
     @Published var questionProgressSec: Int?
+    @Published var pauseSec: Int?
     @Published var opponent: Opponent?
     @Published var myAnswerIndex: Int?
     @Published var opponentAnswerIndex: Int?
@@ -97,6 +98,7 @@ final class QuizViewModel: ObservableObject {
     private var isLocal: Bool { botService != nil }
 
     private var gameTimer: Timer?
+    private var pauseTimer: Timer?
 
     func getOpponent(rank: UserViewModel.Rank) -> Opponent {
         if let opponent = opponent {
@@ -116,12 +118,37 @@ final class QuizViewModel: ObservableObject {
 
     func beginGame() {
         if isLocal {
-            gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-                if let questionProgressSec = self.questionProgressSec {
-                    if questionProgressSec < 15 {
-                        self.questionProgressSec = questionProgressSec + 1
+            beginGameTimer()
+        }
+    }
+
+    private func beginGameTimer() {
+        gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            guard let self = self else { return }
+            if let questionProgressSec = self.questionProgressSec {
+                if questionProgressSec < 15 {
+                    self.questionProgressSec = questionProgressSec + 1
+                } else {
+                    self.questionProgressSec = 0
+                    self.gameTimer?.invalidate()
+                    self.gameTimer = nil
+                    self.pauseBetweenQuizes()
+                }
+            }
+        }
+    }
+
+    private func pauseBetweenQuizes() {
+        if isLocal {
+            pauseTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] timer in
+                guard let self = self else { return }
+                if let pauseSec = self.pauseSec {
+                    if pauseSec < 3 {
+                        self.pauseSec = pauseSec + 1
                     } else {
-                        self.questionProgressSec = 0
+                        self.pauseSec = nil
+                        self.pauseTimer?.invalidate()
+                        self.beginGameTimer()
                     }
                 }
             }
@@ -146,6 +173,8 @@ final class QuizViewModel: ObservableObject {
         self.opponent = nil
         self.gameTimer?.invalidate()
         self.gameTimer = nil
+        self.pauseTimer?.invalidate()
+        self.pauseTimer = nil
     }
 
     private func nextQuestion() {
