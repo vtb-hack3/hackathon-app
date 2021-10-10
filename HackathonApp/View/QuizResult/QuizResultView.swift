@@ -18,12 +18,12 @@ struct QuizResultView: View {
                 Text("Поздравляю")
                     .font(.title)
                     .foregroundColor(Color.white)
-                padding(20)
+                    .padding(20)
                 Text("Вы заработали 500 монет")
                     .foregroundColor(Color.white)
                 Spacer()
             }
-        }
+        }.navigationBarHidden(true)
     }
 }
 

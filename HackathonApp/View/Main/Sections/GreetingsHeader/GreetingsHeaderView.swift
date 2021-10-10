@@ -22,7 +22,7 @@ struct GreetingsHeaderView: View {
                     HStack {
                         Spacer()
                             .frame(width: 16)
-                        Text(userViewModel.name)
+                        Text($userViewModel.name.wrappedValue)
                             .font(.system(size: 32))
                             .fontWeight(.medium)
                             .frame(maxWidth: .infinity, alignment: .leading)

@@ -18,17 +18,19 @@ struct QuizView: View {
     @EnvironmentObject var quizViewModel: QuizViewModel
 
     @State var progressValue: Float = 0.0
+
+    @State var openNextScreen: Bool = false
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ZStack {
-                NavigationLink(
-                    destination: QuizResultView()
-                        .environmentObject(quizViewModel)
-                        .environmentObject(userViewModel),
-                    isActive: $quizViewModel.finished
-                ) { EmptyView() }
                 VStack {
+                    NavigationLink(
+                        destination: QuizResultView()
+                            .environmentObject(quizViewModel)
+                            .environmentObject(userViewModel),
+                        isActive: $quizViewModel.finished
+                    ) { EmptyView() }
                     QuizHeader(userPictureId: $userViewModel.pictureId.wrappedValue)
                         .frame(height: 191)
                         .cornerRadius(radius: 35, corners: [.bottomRight, .bottomLeft])
@@ -62,7 +64,7 @@ struct QuizView: View {
                     }
                 }
             }
-        }
+//        }
         .navigationBarHidden(true)
     }
 }
