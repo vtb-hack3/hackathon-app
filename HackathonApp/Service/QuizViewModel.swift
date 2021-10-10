@@ -22,37 +22,46 @@ final class QuizViewModel: ObservableObject {
     private var msgCancellable: AnyCancellable?
     private var connectionCancellable: AnyCancellable?
 
+    func getOpponent() -> Opponent {
+        if let opponent = opponent {
+            return opponent
+        } else {
+//            opponent =
+            return opponent!
+        }
+    }
+
     init() {
-        msgCancellable = webSocketService.$messages.sink { [weak self] messages in
-            guard let self = self,
-                  let message = messages.last else {
-                      return
-                  }
-            switch message.type {
-            case .quizStarted:
-                self.questions = message.payload.questions!
-                self.opponent = message.payload.opponent!
-                self.question = self.questions[0]
-            case .opponentAnswered:
-                self.opponentAnswerIndex = message.payload.answerId!
-            case .timerTick:
-                if let questionProgressSec = message.payload.questionProgress {
-                    self.questionProgressSec = questionProgressSec
-                } else if let matchmakingSeconds = message.payload.matchmakingProgress {
-                    self.matchmakingSeconds = matchmakingSeconds
-                }
-            case .nextQuestion:
-                self.resetQuestionStats()
-                break
-            case .finish:
-                self.finished = true
-                self.resetQuestionStats()
-                self.msgCancellable?.cancel()
-            }
-        }
-        connectionCancellable = webSocketService.$isConnected.sink { [weak self] isConnected in
-            self?.isConnected = isConnected
-        }
+//        msgCancellable = webSocketService.$messages.sink { [weak self] messages in
+//            guard let self = self,
+//                  let message = messages.last else {
+//                      return
+//                  }
+//            switch message.type {
+//            case .quizStarted:
+//                self.questions = message.payload.questions!
+//                self.opponent = message.payload.opponent!
+//                self.question = self.questions[0]
+//            case .opponentAnswered:
+//                self.opponentAnswerIndex = message.payload.answerId!
+//            case .timerTick:
+//                if let questionProgressSec = message.payload.questionProgress {
+//                    self.questionProgressSec = questionProgressSec
+//                } else if let matchmakingSeconds = message.payload.matchmakingProgress {
+//                    self.matchmakingSeconds = matchmakingSeconds
+//                }
+//            case .nextQuestion:
+//                self.resetQuestionStats()
+//                break
+//            case .finish:
+//                self.finished = true
+//                self.resetQuestionStats()
+//                self.msgCancellable?.cancel()
+//            }
+//        }
+//        connectionCancellable = webSocketService.$isConnected.sink { [weak self] isConnected in
+//            self?.isConnected = isConnected
+//        }
     }
 
     func startMatchmaking() {

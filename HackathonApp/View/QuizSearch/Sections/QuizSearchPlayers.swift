@@ -31,8 +31,7 @@ struct QuizSearchPlayers: View {
                         .strokeBorder(Color("blue_2"), lineWidth: 1)
                         .background(Circle().foregroundColor(Color("blue_1")))
                         .frame(width: 82, height: 82)
-                    Text("?")
-                        .font(.system(size: 35))
+                    ProgressView()
                 }
 
                 Text("Игрок")
