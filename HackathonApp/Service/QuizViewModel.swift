@@ -131,6 +131,7 @@ final class QuizViewModel: ObservableObject {
                     self.questionProgressSec = questionProgressSec + 1
                 } else {
                     self.questionProgressSec = 0
+                    self.nextQuestion()
                 }
             } else {
                 self.questionProgressSec = 0
@@ -172,12 +173,16 @@ final class QuizViewModel: ObservableObject {
     }
 
     func leave() {
+
     }
 
-    
     func nextQuestion() {
-        currentQuizIndex += 1
-        quiz = quizzes[currentQuizIndex]
+        if currentQuizIndex >= quizzes.count - 1 {
+            resetQuestionStats()
+        } else {
+            currentQuizIndex += 1
+            quiz = quizzes[currentQuizIndex]
+        }
     }
     
     private func resetQuestionStats() {
