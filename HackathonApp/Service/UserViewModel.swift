@@ -21,10 +21,12 @@ final class UserViewModel: ObservableObject {
 
     func setRankPoints(_ points: Int) {
         rankPoints = points
+        refreshRank()
     }
 
     func addRankPoints(_ points: Int) {
         rankPoints += points
+        refreshRank()
     }
 
     func addCoins(_ coins: Int) {

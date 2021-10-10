@@ -24,7 +24,7 @@ struct TutorialBookRow: View {
                 Text(model.text)
                     .foregroundColor(model.textColor)
                     .lineLimit(100)
-                    .padding(EdgeInsets(top: 10, leading: 6, bottom: 0, trailing: 6))
+                    .padding(EdgeInsets(top: 4, leading: 4, bottom: 0, trailing: 4))
                     .font(.system(size: 13))
                 model.image
                     .resizable()
