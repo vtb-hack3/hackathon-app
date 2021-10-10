@@ -29,8 +29,6 @@ struct QuizSearchView: View {
                 Spacer()
             }
             .environmentObject(viewModel)
-        }.onAppear {
-            viewModel.startMatchmaking()
         }
     }
 }
