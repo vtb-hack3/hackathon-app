@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8819011A2712A7AB00DC9567 /* TotalAnswersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881901192712A7AA00DC9567 /* TotalAnswersResponse.swift */; };
 		884116B22712979300B11CD5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884116B12712979300B11CD5 /* Game.swift */; };
 		884116B4271298DD00B11CD5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884116B3271298DD00B11CD5 /* NetworkService.swift */; };
 		886F96022710836C0019FE40 /* HackathonAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F96012710836C0019FE40 /* HackathonAppApp.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		881901192712A7AA00DC9567 /* TotalAnswersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAnswersResponse.swift; sourceTree = "<group>"; };
 		884116B12712979300B11CD5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		884116B3271298DD00B11CD5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		886F95FE2710836C0019FE40 /* HackathonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackathonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +139,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		881901182712A79200DC9567 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				881901192712A7AA00DC9567 /* TotalAnswersResponse.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		884116B02712976100B11CD5 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +242,7 @@
 		886F9629271158260019FE40 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				881901182712A79200DC9567 /* Networking */,
 				884116B02712976100B11CD5 /* Game */,
 				EDB640442711B6170062777F /* Message */,
 				886F962A271158320019FE40 /* Message.swift */,
@@ -522,6 +533,7 @@
 				886F9621271138A90019FE40 /* MentorBannerView.swift in Sources */,
 				88E1A7AC27115C8400297DB1 /* TaskMessageAnswerOptionView.swift in Sources */,
 				88E1A7C12711CC5100297DB1 /* QuizResultView.swift in Sources */,
+				8819011A2712A7AB00DC9567 /* TotalAnswersResponse.swift in Sources */,
 				ED9C5606271215AB0006F65C /* ProfileHeaderView.swift in Sources */,
 				EDB640322710D6470062777F /* ProfileView.swift in Sources */,
 				EDB6402D2710D6210062777F /* MainView.swift in Sources */,
