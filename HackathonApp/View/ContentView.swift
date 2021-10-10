@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var userViewModel = UserViewModel()
+    @EnvironmentObject var userViewModel: UserViewModel
+
     var body: some View {
         TabView {
             MainView()
@@ -16,6 +17,7 @@ struct ContentView: View {
                     Image("ic_home")
                     Text("Главная")
                 }
+                .environmentObject(userViewModel)
             MainQuizView()
                 .tabItem {
                     Image("ic_quiz")

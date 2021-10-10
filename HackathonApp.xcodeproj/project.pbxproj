@@ -41,6 +41,7 @@
 		88E1A7C32711CC8A00297DB1 /* QuizResultHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1A7C22711CC8A00297DB1 /* QuizResultHeader.swift */; };
 		ED2C4B7A271229E10014D7DD /* ProfileItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C4B79271229E10014D7DD /* ProfileItemView.swift */; };
 		ED2C4B7C27122B970014D7DD /* ProfileBurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C4B7B27122B970014D7DD /* ProfileBurseView.swift */; };
+		ED2C4B7E271251B70014D7DD /* OnbordingSpendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C4B7D271251B60014D7DD /* OnbordingSpendingView.swift */; };
 		ED9C55FB2711AAAC0006F65C /* AnswerScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C55FA2711AAAC0006F65C /* AnswerScoreItem.swift */; };
 		ED9C55FD2711AF0F0006F65C /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C55FC2711AF0F0006F65C /* QuestionView.swift */; };
 		ED9C55FF2711B4D00006F65C /* AnswerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C55FE2711B4D00006F65C /* AnswerItemView.swift */; };
@@ -96,6 +97,7 @@
 		88E1A7C22711CC8A00297DB1 /* QuizResultHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultHeader.swift; sourceTree = "<group>"; };
 		ED2C4B79271229E10014D7DD /* ProfileItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemView.swift; sourceTree = "<group>"; };
 		ED2C4B7B27122B970014D7DD /* ProfileBurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBurseView.swift; sourceTree = "<group>"; };
+		ED2C4B7D271251B60014D7DD /* OnbordingSpendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingSpendingView.swift; sourceTree = "<group>"; };
 		ED9C55FA2711AAAC0006F65C /* AnswerScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerScoreItem.swift; sourceTree = "<group>"; };
 		ED9C55FC2711AF0F0006F65C /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		ED9C55FE2711B4D00006F65C /* AnswerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerItemView.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				88C93CFD27121E84004465DE /* OnboardingView.swift */,
 				88C93D0127123110004465DE /* OnboardingNameView.swift */,
+				ED2C4B7D271251B60014D7DD /* OnbordingSpendingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				ED2C4B7A271229E10014D7DD /* ProfileItemView.swift in Sources */,
 				EDB6404C2711FA2F0062777F /* QuizViewModel.swift in Sources */,
 				ED9C55FF2711B4D00006F65C /* AnswerItemView.swift in Sources */,
+				ED2C4B7E271251B70014D7DD /* OnbordingSpendingView.swift in Sources */,
 				88E1A7B1271182E600297DB1 /* QuizView.swift in Sources */,
 				ED9C56032711CCA40006F65C /* AdviceView.swift in Sources */,
 				ED9C55FD2711AF0F0006F65C /* QuestionView.swift in Sources */,

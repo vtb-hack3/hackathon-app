@@ -1,10 +1,13 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+
     var body: some View {
         ScrollView {
             VStack {
                 GreetingsHeaderView()
+                    .environmentObject(userViewModel)
                     .frame(height: 190)
                 MentorView()
                 Spacer(minLength: 16)

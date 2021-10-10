@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct OnboardingNameView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+    
     @State var name: String = ""
-    @State var selectedIndex: Int = 0
+    @State var selectedIndex: Int?
+    @State var openMainScreen: Bool = false
+    
     var body: some View {
         ZStack {
             Color("blue_1")
@@ -60,7 +64,7 @@ struct OnboardingNameView: View {
                 }
                 Spacer()
                 
-                if name.count > 0 {
+                if name.count > 0, selectedIndex != nil {
                     Text("Продолжить")
                         .font(.system(size: 17))
                         .fontWeight(.medium)
@@ -69,11 +73,22 @@ struct OnboardingNameView: View {
                         .background(Color("blue_5"))
                         .cornerRadius(12)
                         .padding(.bottom, 30)
+                        .onTapGesture {
+                            userViewModel.name = name
+                            userViewModel.pictureId = selectedIndex ?? 0
+                            UserDefaults.isFirstLauch = false
+                            userViewModel.isFirstLauch = false
+                        }
                 }
             }
             .padding()
         }
         .ignoresSafeArea()
+        .navigate(
+            to: ContentView()
+                .environmentObject(userViewModel),
+            when: $openMainScreen
+        )
     }
 }
 

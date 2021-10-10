@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct GreetingsHeaderView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+
     var body: some View {
         VStack {
             ZStack(alignment: .center) {
@@ -20,7 +22,7 @@ struct GreetingsHeaderView: View {
                     HStack {
                         Spacer()
                             .frame(width: 16)
-                        Text("Марк!")
+                        Text(userViewModel.name)
                             .font(.system(size: 28))
                             .fontWeight(.medium)
                             .frame(maxWidth: .infinity, alignment: .leading)
