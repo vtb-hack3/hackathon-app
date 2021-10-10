@@ -159,7 +159,9 @@ final class QuizViewModel: ObservableObject {
     func startMatchmaking() {
         let id = UserDefaults.standard.integer(forKey: "userId")
         networkService.searchGame(userId: id) { game in
-            self.opponent = game.message.room.opponent
+            DispatchQueue.main.async {
+                self.opponent = game.message.room.opponent
+            }
         }
     }
 

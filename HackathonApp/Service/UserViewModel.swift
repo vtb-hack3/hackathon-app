@@ -29,8 +29,10 @@ final class UserViewModel: ObservableObject {
     
     func createUser() {
         networkService.createUser(name: name, pictureId: pictureId, coins: 0) { response in
-            self.userId = response.message.id ?? 0
-            UserDefaults.standard.set(self.userId, forKey: "userId")
+            DispatchQueue.main.async {
+                self.userId = response.message.id ?? 0
+                UserDefaults.standard.set(self.userId, forKey: "userId")
+            }
         }
     }
 
