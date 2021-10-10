@@ -18,7 +18,7 @@ struct Answers {
 
 struct AnswersView: View {
     @EnvironmentObject var quizViewModel: QuizViewModel
-
+    
     var body: some View {
         ScrollView {
             Spacer(minLength: 40)
@@ -26,11 +26,35 @@ struct AnswersView: View {
                 VStack(spacing: 16) {
                     HStack(spacing: 16) {
                         AnswerItemView(answer: $quizViewModel.quiz.wrappedValue!.answers[0])
+                            .onTapGesture {
+                                if quizViewModel.selectedAnswers.count > 0 {
+                                    $quizViewModel.selectedAnswers.wrappedValue.removeLast()
+                                    quizViewModel.selectedAnswers.append($quizViewModel.quiz.wrappedValue!.answers[0])
+                                }
+                            }
                         AnswerItemView(answer: $quizViewModel.quiz.wrappedValue!.answers[1])
+                            .onTapGesture {
+                                if quizViewModel.selectedAnswers.count > 0 {
+                                    $quizViewModel.selectedAnswers.wrappedValue.removeLast()
+                                    quizViewModel.selectedAnswers.append($quizViewModel.quiz.wrappedValue!.answers[1])
+                                }
+                            }
                     }
                     HStack(spacing: 16) {
                         AnswerItemView(answer: $quizViewModel.quiz.wrappedValue!.answers[2])
+                            .onTapGesture {
+                                if quizViewModel.selectedAnswers.count > 0 {
+                                    $quizViewModel.selectedAnswers.wrappedValue.removeLast()
+                                    quizViewModel.selectedAnswers.append($quizViewModel.quiz.wrappedValue!.answers[2])
+                                }
+                            }
                         AnswerItemView(answer: $quizViewModel.quiz.wrappedValue!.answers[3])
+                            .onTapGesture {
+                                if quizViewModel.selectedAnswers.count > 0 {
+                                    $quizViewModel.selectedAnswers.wrappedValue.removeLast()
+                                    quizViewModel.selectedAnswers.append($quizViewModel.quiz.wrappedValue!.answers[3])
+                                }
+                            }
                     }
                 }
             }

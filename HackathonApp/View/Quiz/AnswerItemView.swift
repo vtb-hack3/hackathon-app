@@ -15,18 +15,18 @@ struct Answer: Codable {
 }
 
 struct AnswerItemView: View {
-    @State var answer: Answer
+    var answer: Answer
     @State var didAnswer: Bool = false
-    @State var isShowRivalSelect: Bool = false
+    var isShowRivalSelect: Bool = false
 
     var body: some View {
         ZStack {
             ZStack {
                 ZStack {
                     Color(
-                        didAnswer ?  ($answer.is_right.wrappedValue ? "corect_answer" : "incorect_answer") : "blue_1"
+                        didAnswer ?  (answer.is_right ? "corect_answer" : "incorect_answer") : "blue_1"
                     )
-                    Text($answer.text.wrappedValue)
+                    Text(answer.text)
                         .padding(EdgeInsets(top: 14, leading: 12, bottom: 14, trailing: 12))
                 }
                 .onTapGesture {

@@ -16,12 +16,12 @@ struct ProfileBurseView: View {
                     .font(.title)
                     .fontWeight(.medium)
                 HStack(spacing: 8) {
-                    createItemView(title: "20 % скидка  на акции ВТБ", image: "burse_item_1")
-                    createItemView(title: "20 % скидка  на акции ВТБ", image: "burse_item_2")
+                    createItemView(title: "Акция ВТБ 2 000 монет ", image: "burse_item_1")
+                    createItemView(title: "Акция ВТБ 5 000 монет ", image: "burse_item_2")
                 }.fixedSize(horizontal: false, vertical: true)
                 HStack(spacing: 8) {
-                    createItemView(title: "20 % скидка  на акции ВТБ", image: "burse_item_3")
-                    createItemView(title: "20 % скидка  на акции ВТБ", image: "burse_item_3")
+                    createItemView(title: "Акция ВТБ 10 000 монет ", image: "burse_item_3")
+                    createItemView(title: "Акция ВТБ 15 000 монет ", image: "burse_item_3")
                 }.fixedSize(horizontal: false, vertical: true)
             }
             .padding(.init(top: 20, leading: 12, bottom: 14, trailing: 12))
@@ -41,11 +41,13 @@ struct ProfileBurseView: View {
                 Image(image)
 
                 Button(action: {
-                    //                            self.selectedPoster = nil
+                    if let url = URL(string: "https://broker.vtb.ru/login/vtbinvest/") {
+                        UIApplication.shared.open(url)
+                    }
                 }) {
                     ZStack {
                         Color("1")
-                        Text("Купить")
+                        Text("Обменять")
                             .foregroundColor(Color.white)
                     }
                     .cornerRadius(16)
