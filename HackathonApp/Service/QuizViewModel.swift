@@ -36,25 +36,25 @@ let localQuizzes: [Quiz] = [
                 id: 0,
                 text: "1",
                 is_right: false,
-                description: nil
+                description: "Неа, зеленого не догнать."
             ),
             .init(
                 id: 1,
                 text: "2",
                 is_right: true,
-                description: nil
+                description: "Да, уверенно следуем за зеленым!"
             ),
             .init(
                 id: 2,
                 text: "3",
                 is_right: false,
-                description: nil
+                description: "Ну не так же низко"
             ),
             .init(
                 id: 3,
                 text: "4",
                 is_right: false,
-                description: nil
+                description: "Да Вы что? Мы на 2 месте!"
             )
         ]
     ),
@@ -66,19 +66,19 @@ let localQuizzes: [Quiz] = [
                 id: 0,
                 text: "Диверсификация",
                 is_right: true,
-                description: nil
+                description: "Да, верно!"
             ),
             .init(
                 id: 1,
                 text: "Инвестиция",
                 is_right: false,
-                description: nil
+                description: "Нет, не верно! Это диверсификация."
             ),
             .init(
                 id: 2,
                 text: "Облигация",
                 is_right: false,
-                description: nil 
+                description: "Нет, не верно! Это диверсификация."
             )
         ]
     )
