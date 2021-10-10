@@ -2,7 +2,7 @@ import SwiftUI
 
 struct QuizAboutToStartView: View {
     @EnvironmentObject var quizViewModel: QuizViewModel
-    @State var opponent: Opponent
+    @State var opponent: User
     @State var myPictureId: Int
     @State var myName: String
 

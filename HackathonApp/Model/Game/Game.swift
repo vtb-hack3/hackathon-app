@@ -20,7 +20,7 @@ struct Message: Codable {
 // MARK: - Room
 struct Room: Codable {
     let id: Int
-    let questions: [GameQuestion]
+    let questions: [Quiz]
     let creator, opponent: Creator
     let startedAt: String
     let finishedAt: String
@@ -47,22 +47,22 @@ struct Creator: Codable {
     }
 }
 
-// MARK: - GameQuestion
-struct GameQuestion: Codable {
-    let id: Int
-    let answers: [GameAnswer]
-    let text: String
-}
+//// MARK: - GameQuestion
+//struct GameQuestion: Codable {
+//    let id: Int
+//    let answers: [Answer]
+//    let text: String
+//}
 
 // MARK: - GameAnswer
-struct GameAnswer: Codable {
-    let id: Int
-    let text: String
-    let isRight: Bool
-
-    enum CodingKeys: String, CodingKey {
-        case id, text
-        case isRight = "is_right"
-    }
-}
+//struct GameAnswer: Codable {
+//    let id: Int
+//    let text: String
+//    let isRight: Bool
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id, text
+//        case isRight = "is_right"
+//    }
+//}
 

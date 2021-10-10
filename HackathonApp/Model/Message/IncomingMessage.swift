@@ -27,6 +27,6 @@ struct Question: Decodable {
 }
 
 struct Opponent: Decodable {
-    let name: String
-    let pictureId: Int
+    var name: String
+    var pictureId: Int
 }

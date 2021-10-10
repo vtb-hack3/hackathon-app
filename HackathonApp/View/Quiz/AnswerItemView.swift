@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Answer: Decodable {
+struct Answer: Codable {
     let id: Int
     let text: String
     let is_right: Bool
