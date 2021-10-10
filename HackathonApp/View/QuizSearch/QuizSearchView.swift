@@ -19,59 +19,62 @@ struct QuizSearchView: View {
     @State var seconds = 10
 
     var body: some View {
-        ZStack {
-            Color(.white)
-            Image("QuizSearchImage")
-                .resizable()
-                .scaledToFit()
-                .offset(x: 0, y: 190)
+        NavigationView {
             VStack {
-                QuizSearchHeader()
-                    .frame(height: 191)
-                    .ignoresSafeArea(edges: .top)
-                QuizSearchPlayers()
-                    .offset(x: 0, y: -70)
-                    .padding(.bottom, -100)
-                    .environmentObject(userViewModel)
-                QuizSearchTimer(seconds: $seconds)
-                Text("Поиск игрока")
-                    .foregroundColor(Color("blue_9"))
-                    .font(.system(size: 20))
-                Spacer()
-                Button(action: cancel) {
-                    ZStack {
-                        Color("blue_5")
-                        Text("Отмена")
-                            .foregroundColor(.white)
+                NavigationLink(destination: QuizAboutToStartView(
+                    opponent: viewModel.getOpponent(rank: userViewModel.rank),
+                    myPictureId: userViewModel.pictureId,
+                    myName: userViewModel.name
+                )
+                                .environmentObject(userViewModel),
+                               isActive: $openNextScreen
+                ) { EmptyView() }
+                ZStack {
+                    Color(.white)
+                    Image("QuizSearchImage")
+                        .resizable()
+                        .scaledToFit()
+                        .offset(x: 0, y: 190)
+                    VStack {
+                        QuizSearchHeader()
+                            .frame(height: 191)
+                            .ignoresSafeArea(edges: .top)
+                        QuizSearchPlayers()
+                            .offset(x: 0, y: -70)
+                            .padding(.bottom, -100)
+                            .environmentObject(userViewModel)
+                        QuizSearchTimer(seconds: $seconds)
+                        Text("Поиск игрока")
+                            .foregroundColor(Color("blue_9"))
+                            .font(.system(size: 20))
+                        Spacer()
+                        Button(action: cancel) {
+                            ZStack {
+                                Color("blue_5")
+                                Text("Отмена")
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        .frame(height: 50)
+                        .cornerRadius(16)
+                        .padding()
+                        Spacer()
+                            .frame(height: 24)
+                    }
+                    .environmentObject(viewModel)
+                }
+                .edgesIgnoringSafeArea(.top)
+                .onReceive(timer) { input in
+                    if seconds > 0 {
+                        seconds -= 1
+                    } else  {
+                        timer.upstream.connect().cancel()
+                        openNextScreen = true
                     }
                 }
-                .frame(height: 50)
-                .cornerRadius(16)
-                .padding()
-                Spacer()
-                    .frame(height: 24)
             }
-            .environmentObject(viewModel)
         }
-        .edgesIgnoringSafeArea(.top)
         .navigationBarHidden(true)
-        .onReceive(timer) { input in
-            if seconds > 0 {
-                seconds -= 1
-            } else  {
-                timer.upstream.connect().cancel()
-                
-            }
-        }
-        .navigate(
-            to: QuizAboutToStartView(
-                opponent: viewModel.getOpponent(),
-                myPictureId: userViewModel.pictureId,
-                myName: userViewModel.name
-            )
-                .environmentObject(userViewModel),
-            when: $openNextScreen
-        )
     }
 
     private func cancel() {

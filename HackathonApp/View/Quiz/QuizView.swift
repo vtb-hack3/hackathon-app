@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-struct Quiz {
-    let question: String
+struct Quiz: Decodable {
+    let id: Int
+    let text: String
     let answers: [Answer]
-    let advice: String
-    let rivalAnswerIndex: Int?
 }
 
 struct QuizView: View {
     @EnvironmentObject var viewModel: QuizViewModel
-    let quiz: Quiz
     
     var body: some View {
         ZStack {
@@ -25,7 +23,7 @@ struct QuizView: View {
                     .frame(height: 191)
                     .cornerRadius(radius: 35, corners: [.bottomRight, .bottomLeft])
                     .ignoresSafeArea(edges: .top)
-                QuestionView(question: $viewModel.question.wrappedValue?.question ?? "")
+                QuestionView(question: $viewModel.quiz.wrappedValue?.text ?? "")
                     .cornerRadius(16)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal)
@@ -34,11 +32,11 @@ struct QuizView: View {
                     .shadow(color: .black.opacity(0.3), radius: 16, x: 0, y: 10)
                 AnswersView(
                     answers: .init(
-                        answers: quiz.answers,
-                        type: quiz.answers.count == 4 ? .puzzle : .list,
-                        rivalAnswerIndex: quiz.rivalAnswerIndex
+                        answers: viewModel.quiz!.answers,
+                        type: viewModel.quiz!.answers.count == 4 ? .puzzle : .list
                     )
                 )
+                    .environmentObject(viewModel)
             }
         }
     }
@@ -46,29 +44,7 @@ struct QuizView: View {
 
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
-        QuizView(quiz: quizMock)
+        QuizView()
             .environmentObject(QuizViewModel())
     }
 }
-
-let quizMock: Quiz = .init(
-    question: "Начнем с азов.   В чем основная проблема и угроза активных инвестиций   в акции?",
-    answers: answersMock,
-    advice: "На рынке идет жесткая борьба  за каждый процент - и, чтобы получать доходность выше, чем по биржевым фондам, придется подробно изучать,  как все устроено. Но и этого  может не хватить.",
-    rivalAnswerIndex: nil
-)
-
-let answersMock: [Answer] = [
-    .init(
-        answer: "Нужно тратить время на изучение акций и управление портфелем: постоянно обновлять анализ, следить за новостями и проводить ребалансировку",
-        isCorrect: true
-    ),
-    .init(
-        answer: "На рынке много профессиональных конкурентов, которые вкладывают деньги, чтобы получить эксклюзивную информацию  о компаниях.  И большинство все равно показывает доходностьниже рынка",
-        isCorrect: false
-    ),
-    .init(
-        answer: "Нужно тратить время на изучение акций и управление п",
-        isCorrect: true
-    )
-]

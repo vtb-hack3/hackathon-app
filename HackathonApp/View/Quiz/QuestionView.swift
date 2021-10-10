@@ -33,7 +33,7 @@ struct QuestionView: View {
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView(question: quizMock.question)
+        QuestionView(question: "How do you do")
             .previewDevice("iPhone 13")
     }
 }

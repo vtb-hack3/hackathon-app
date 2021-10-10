@@ -11,10 +11,10 @@ import Combine
 class BotService: ObservableObject {
     @Published var answers: [Answer] = []
     @Published var name: String = ""
-    @Published var imageName: String = ""
+    @Published var imageId: Int = 0
     
     private var botNames = ["Марк", "Илья", "Максим", "Саша"]
-    private var botImageNames = ["pr_pic_0", "pr_pic_1", "pr_pic_2", "pr_pic_3",]
+    private var botImageNames = [0, 1, 2, 3]
     
     private var rank: UserViewModel.Rank = .newbie
     private var timeToThink: Int = 0
@@ -23,13 +23,13 @@ class BotService: ObservableObject {
     init(rank: UserViewModel.Rank) {
         self.rank = rank
         self.name = botNames.randomElement() ?? botNames[0]
-        self.imageName = botImageNames.randomElement() ?? botImageNames[0]
+        self.imageId = botImageNames.randomElement() ?? botImageNames[0]
     }
     
     func answerQuestion(options: [Answer]) {
         DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(timeToThink)) {
-            let randomIncorrect = options.filter { $0.isCorrect == false }.randomElement() ?? options[0]
-            let correct = options.first { $0.isCorrect } ?? options[0]
+            let randomIncorrect = options.filter { $0.is_right == false }.randomElement() ?? options[0]
+            let correct = options.first { $0.is_right } ?? options[0]
             
             switch self.rank {
             case .newbie:

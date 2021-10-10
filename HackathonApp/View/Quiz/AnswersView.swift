@@ -14,11 +14,11 @@ struct Answers {
     }
     let answers: [Answer]
     let type: Type
-    let rivalAnswerIndex: Int?
 }
 
 struct AnswersView: View {
     @State var answers: Answers
+    @EnvironmentObject var quizViewModel: QuizViewModel
 
     var body: some View {
         ScrollView {
@@ -50,11 +50,44 @@ struct AnswersView: View {
 struct AnswersView_Previews: PreviewProvider {
     static var previews: some View {
         AnswersView(
-            answers: .init(answers: answersMock, type: .list, rivalAnswerIndex: nil)
+            answers: .init(
+                answers: [
+                    .init(
+                        id: 1,
+                        text: "Answer",
+                        is_right: true,
+                        description: "Great"
+                    ),
+                    .init(
+                        id: 2,
+                        text: "Answer2",
+                        is_right: false,
+                        description: ":("
+                    )
+                ], type: .list
+            )
         )
+            .environmentObject(QuizViewModel())
 
         AnswersView(
-            answers: .init(answers: answersMock, type: .puzzle, rivalAnswerIndex: 1)
+            answers: .init(answers: .init(
+                [
+                    .init(
+                        id: 1,
+                        text: "Answer",
+                        is_right: true,
+                        description: "Great"
+                    ),
+                    .init(
+                        id: 2,
+                        text: "Answer2",
+                        is_right: false,
+                        description: ":("
+                    )
+                ]
+            ), type: .puzzle
+                          )
         )
+            .environmentObject(QuizViewModel())
     }
 }

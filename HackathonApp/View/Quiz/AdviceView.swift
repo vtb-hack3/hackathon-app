@@ -57,7 +57,7 @@ struct AdviceView: View {
 struct AdviceView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            AdviceView(advice: quizMock.advice)
+            AdviceView(advice: "quizMock.advice")
         }
     }
 }

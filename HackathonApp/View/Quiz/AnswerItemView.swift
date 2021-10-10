@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct Answer {
-    let answer: String
-    let isCorrect: Bool
+struct Answer: Decodable {
+    let id: Int
+    let text: String
+    let is_right: Bool
+    let description: String?
 }
 
 struct AnswerItemView: View {
@@ -22,9 +24,9 @@ struct AnswerItemView: View {
             ZStack {
                 ZStack {
                     Color(
-                        didAnswer ?  (answer.isCorrect ? "corect_answer" : "incorect_answer") : "blue_1"
+                        didAnswer ?  (answer.is_right ? "corect_answer" : "incorect_answer") : "blue_1"
                     )
-                    Text(answer.answer)
+                    Text(answer.text)
                         .padding(EdgeInsets(top: 14, leading: 12, bottom: 14, trailing: 12))
                 }
                 .onTapGesture {
@@ -59,7 +61,12 @@ struct AnswerItemView: View {
 struct AnswerItemView_Previews: PreviewProvider {
     static var previews: some View {
         AnswerItemView(
-            answer: answersMock[0]
+            answer: .init(
+                id: 0,
+                text: "Answer",
+                is_right: true,
+                description: "Great"
+            )
         )
     }
 }
