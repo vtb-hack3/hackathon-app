@@ -16,12 +16,12 @@ struct ProfileBurseView: View {
                     .font(.title)
                     .fontWeight(.medium)
                 HStack(spacing: 8) {
-                    createItemView(title: "Акция ВТБ 2 000 монет ", image: "burse_item_1")
-                    createItemView(title: "Акция ВТБ 5 000 монет ", image: "burse_item_2")
+                    createItemView(title: "Случайная акция ВТБ до 2000₽ 2 000 монет", image: "burse_item_1")
+                    createItemView(title: "Случайная акция ВТБ до 5000₽ 4 000 монет", image: "burse_item_2")
                 }.fixedSize(horizontal: false, vertical: true)
                 HStack(spacing: 8) {
-                    createItemView(title: "Акция ВТБ 10 000 монет ", image: "burse_item_3")
-                    createItemView(title: "Акция ВТБ 15 000 монет ", image: "burse_item_3")
+                    createItemView(title: "Случайная акция ВТБ до 10 000₽ 10 000 монет", image: "burse_item_3")
+                    createItemView(title: "Случайная акция ВТБ до 20 000₽ 15 000 монет", image: "burse_item_3")
                 }.fixedSize(horizontal: false, vertical: true)
             }
             .padding(.init(top: 20, leading: 12, bottom: 14, trailing: 12))
@@ -38,6 +38,8 @@ struct ProfileBurseView: View {
             Color.white
             VStack(spacing: 12) {
                 Text(title)
+                    .padding()
+                    .multilineTextAlignment(.center)
                 Image(image)
 
                 Button(action: {
