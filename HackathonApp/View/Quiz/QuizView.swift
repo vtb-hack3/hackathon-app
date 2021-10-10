@@ -26,29 +26,38 @@ struct QuizView: View {
                     .frame(height: 191)
                     .cornerRadius(radius: 35, corners: [.bottomRight, .bottomLeft])
                     .ignoresSafeArea(edges: .top)
-                QuestionView(question: $quizViewModel.quiz.wrappedValue?.text ?? "")
-                    .cornerRadius(16)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(.horizontal)
-                    .offset(y: -100)
-                    .padding(.bottom, -100)
-                    .shadow(color: .black.opacity(0.3), radius: 16, x: 0, y: 10)
-                AnswersView(
-                    answers: .init(
-                        answers: quizViewModel.quiz!.answers,
-                        type: quizViewModel.quiz!.answers.count == 4 ? .puzzle : .list
+                if $quizViewModel.pauseSec.wrappedValue == nil {
+                    QuestionView(question: $quizViewModel.quiz.wrappedValue?.text ?? "")
+                        .cornerRadius(16)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.horizontal)
+                        .offset(y: -100)
+                        .padding(.bottom, -100)
+                        .shadow(color: .black.opacity(0.3), radius: 16, x: 0, y: 10)
+                    AnswersView(
+                        answers: .init(
+                            answers: quizViewModel.quiz!.answers,
+                            type: quizViewModel.quiz!.answers.count == 4 ? .puzzle : .list
+                        )
                     )
-                )
-                    .environmentObject(quizViewModel)
-                ProgressBar(
-                    value: .constant(
-                        Float(
-                            $quizViewModel.questionProgressSec.wrappedValue ?? 0
-                        ) / 15.0
+                        .environmentObject(quizViewModel)
+                    ProgressBar(
+                        value: .constant(
+                            Float(
+                                $quizViewModel.questionProgressSec.wrappedValue ?? 0
+                            ) / 15.0
+                        )
                     )
-                )
-                    .frame(height: 14)
-                    .padding()
+                        .frame(height: 14)
+                        .padding()
+                } else {
+                    Spacer()
+                    ProgressView()
+                        .padding()
+                    Text("Ожидаем оппонента...")
+                        .font(.system(size: 25))
+                    Spacer()
+                }
             }
         }
         .navigationBarHidden(true)
