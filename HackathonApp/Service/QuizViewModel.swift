@@ -80,7 +80,7 @@ let localQuizzes: [Quiz] = [
 
 final class QuizViewModel: ObservableObject {
 
-    @Published var quiz: Quiz? //
+    @Published var quiz: Quiz? = localQuizzes[0]
     @Published var questionProgressSec: Int? //
     @Published var opponent: User? //
     @Published var myAnswerIndex: Int?

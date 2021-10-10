@@ -8,39 +8,34 @@
 import SwiftUI
 
 struct QuizHeader: View {
+    @State var userPictureId: Int
+    @State var firstAnswerCorrect: Bool = false
+    @State var secondAnswerCorrect: Bool = false
+    @State var thirdAnswerCorrect: Bool = false
+
     var body: some View {
         ZStack {
             Color("blue_4")
             HStack {
-                HStack {
-                    AnswerScoreItem(isCorrect: true)
-                    AnswerScoreItem(isCorrect: false)
-                    AnswerScoreItem(isCorrect: false)
+                ZStack {
+                    Image.profile(by: userPictureId)
                 }
                 Spacer()
-                ZStack {
-                    Image("round_bg")
-                    Image("user_1")
-
+                HStack {
+                    AnswerScoreItem(isCorrect: firstAnswerCorrect)
+                    AnswerScoreItem(isCorrect: secondAnswerCorrect)
+                    AnswerScoreItem(isCorrect: thirdAnswerCorrect)
                 }
 
             }.padding(.horizontal)
-            ZStack {
-                Image("round_bg")
-                Text("1")
-                    .font(.title)
-                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.923, green: 0.647, blue: -0.225)/*@END_MENU_TOKEN@*/)
-                    .multilineTextAlignment(.center)
 
-            }
-            .padding()
         }
     }
 }
 
 struct QuizHeader_Previews: PreviewProvider {
     static var previews: some View {
-        QuizHeader()
+        QuizHeader(userPictureId: 0)
             .previewLayout(.fixed(width: 375, height: 191))
     }
 }

@@ -26,7 +26,8 @@ struct QuizSearchView: View {
                     myPictureId: userViewModel.pictureId,
                     myName: userViewModel.name
                 )
-                                .environmentObject(userViewModel),
+                                .environmentObject(userViewModel)
+                                .environmentObject(viewModel),
                                isActive: $openNextScreen
                 ) { EmptyView() }
                 ZStack {
