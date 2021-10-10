@@ -68,6 +68,11 @@ struct OnboardingView: View {
                                 .background(.white)
                                 .cornerRadius(12)
                                 .onTapGesture {
+                                    if answer == "Нет" {
+                                        userViewModel.addRankPoints(325)
+                                    } else {
+                                        userViewModel.addRankPoints(200)
+                                    }
                                     if modelIndex == onboardingModels.count - 1 {
                                         // userViewModel.coins += 500
                                         openNextScreen.toggle()
@@ -88,6 +93,11 @@ struct OnboardingView: View {
                             .cornerRadius(12)
                             .padding(.bottom, 24)
                             .onTapGesture {
+                                if let index = onboardingModels[modelIndex].answers.firstIndex(of: answer), index > 0 {
+                                    userViewModel.addRankPoints(150 * index)
+                                } else {
+                                    userViewModel.addRankPoints(200)
+                                }
                                 if modelIndex == onboardingModels.count - 1 {
                                     // userViewModel.coins += 500
                                     openNameScreen.toggle()
@@ -149,6 +159,7 @@ struct OnboardingView: View {
                         .cornerRadius(12)
                         .padding(.bottom, 30)
                         .onTapGesture {
+                            userViewModel.addRankPoints(answersSelectIndexes.count * 208)
                             openNameScreen.toggle()
                         }
                 }
