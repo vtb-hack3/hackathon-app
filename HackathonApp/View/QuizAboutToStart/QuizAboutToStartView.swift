@@ -2,20 +2,22 @@ import SwiftUI
 
 struct QuizAboutToStartView: View {
     @EnvironmentObject var quizViewModel: QuizViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
     @State var opponent: Opponent
     @State var myPictureId: Int
     @State var myName: String
 
     @State var openNextScreen: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State var seconds = 4
+    @State var seconds = 3
 
     var body: some View {
         NavigationView {
             VStack {
                 NavigationLink(
                     destination: QuizView()
-                        .environmentObject(quizViewModel),
+                        .environmentObject(quizViewModel)
+                        .environmentObject(userViewModel),
                     isActive: $openNextScreen
                 ) { EmptyView() }
                 Group {
