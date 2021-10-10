@@ -9,15 +9,15 @@ import SwiftUI
 
 struct Answer: Codable {
     let id: Int
-    let text: String
-    let is_right: Bool
+    var text: String
+    var is_right: Bool
     let description: String?
 }
 
 struct AnswerItemView: View {
-    @State var answer: Answer
+    var answer: Answer
     @State var didAnswer: Bool = false
-    @State var isShowRivalSelect: Bool = false
+    var isShowRivalSelect: Bool = false
 
     var body: some View {
         ZStack {

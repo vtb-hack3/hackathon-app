@@ -147,25 +147,25 @@ final class QuizViewModel: ObservableObject {
         }
     }
 
-    private func pauseBetweenQuizes() {
-        if isLocal {
-            pauseTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-                guard let self = self else { return }
-                if let pauseSec = self.pauseSec {
-                    if pauseSec < 2 {
-                        self.pauseSec = pauseSec + 1
-                    } else {
-                        self.pauseSec = nil
-                        self.pauseTimer?.invalidate()
-                        self.pauseTimer = nil
-                        self.beginGameTimer()
-                    }
-                } else {
-                    self.pauseSec = 1
-                }
-            }
-        }
-    }
+//    private func pauseBetweenQuizes() {
+//        if isLocal {
+//            pauseTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+//                guard let self = self else { return }
+//                if let pauseSec = self.pauseSec {
+//                    if pauseSec < 2 {
+//                        self.pauseSec = pauseSec + 1
+//                    } else {
+//                        self.pauseSec = nil
+//                        self.pauseTimer?.invalidate()
+//                        self.pauseTimer = nil
+//                        self.beginGameTimer()
+//                    }
+//                } else {
+//                    self.pauseSec = 1
+//                }
+//            }
+//        }
+//    }
     
     func startMatchmaking() {
         let id = UserDefaults.standard.integer(forKey: "userId")
@@ -189,6 +189,9 @@ final class QuizViewModel: ObservableObject {
     func nextQuestion() {
         if currentQuizIndex >= quizzes.count - 1 {
             resetQuestionStats()
+            self.gameTimer?.invalidate()
+            self.gameTimer = nil
+            finished = true
         } else {
             currentQuizIndex += 1
             quiz = quizzes[currentQuizIndex]
@@ -199,7 +202,6 @@ final class QuizViewModel: ObservableObject {
         self.opponentAnswerIndex = nil
         self.myAnswerIndex = nil
         self.questionProgressSec = nil
-        self.quiz = nil
         self.botService = nil
         self.opponent = nil
         self.gameTimer?.invalidate()

@@ -17,43 +17,42 @@ struct Answers {
 }
 
 struct AnswersView: View {
-    @State var answers: Answers
     @EnvironmentObject var quizViewModel: QuizViewModel
     
     var body: some View {
         ScrollView {
             Spacer(minLength: 40)
-            if answers.type == .puzzle {
+            if $quizViewModel.quiz.wrappedValue!.answers.count == 4 {
                 VStack(spacing: 16) {
                     HStack(spacing: 16) {
-                        AnswerItemView(answer: answers.answers[0])
+                        AnswerItemView(answer: $quizViewModel.quiz.wrappedValue!.answers[0])
                             .onTapGesture {
                                 if quizViewModel.selectedAnswers.count > 0 {
                                     $quizViewModel.selectedAnswers.wrappedValue.removeLast()
-                                    quizViewModel.selectedAnswers.append(answers.answers[0])
+                                    quizViewModel.selectedAnswers.append($quizViewModel.quiz.wrappedValue!.answers[0])
                                 }
                             }
-                        AnswerItemView(answer: answers.answers[1])
+                        AnswerItemView(answer: $quizViewModel.quiz.wrappedValue!.answers[1])
                             .onTapGesture {
                                 if quizViewModel.selectedAnswers.count > 0 {
                                     $quizViewModel.selectedAnswers.wrappedValue.removeLast()
-                                    quizViewModel.selectedAnswers.append(answers.answers[1])
+                                    quizViewModel.selectedAnswers.append($quizViewModel.quiz.wrappedValue!.answers[1])
                                 }
                             }
                     }
                     HStack(spacing: 16) {
-                        AnswerItemView(answer: answers.answers[2])
+                        AnswerItemView(answer: $quizViewModel.quiz.wrappedValue!.answers[2])
                             .onTapGesture {
                                 if quizViewModel.selectedAnswers.count > 0 {
                                     $quizViewModel.selectedAnswers.wrappedValue.removeLast()
-                                    quizViewModel.selectedAnswers.append(answers.answers[2])
+                                    quizViewModel.selectedAnswers.append($quizViewModel.quiz.wrappedValue!.answers[2])
                                 }
                             }
-                        AnswerItemView(answer: answers.answers[3])
+                        AnswerItemView(answer: $quizViewModel.quiz.wrappedValue!.answers[3])
                             .onTapGesture {
                                 if quizViewModel.selectedAnswers.count > 0 {
                                     $quizViewModel.selectedAnswers.wrappedValue.removeLast()
-                                    quizViewModel.selectedAnswers.append(answers.answers[3])
+                                    quizViewModel.selectedAnswers.append($quizViewModel.quiz.wrappedValue!.answers[3])
                                 }
                             }
                     }
@@ -61,8 +60,8 @@ struct AnswersView: View {
             }
             else {
                 VStack(spacing: 16) {
-                    ForEach(0..<answers.answers.count, id: \.self) { index in
-                        AnswerItemView(answer: answers.answers[index])
+                    ForEach(0..<$quizViewModel.quiz.wrappedValue!.answers.count, id: \.self) { index in
+                        AnswerItemView(answer: $quizViewModel.quiz.wrappedValue!.answers[index])
                     }
 
                 }
@@ -73,45 +72,11 @@ struct AnswersView: View {
 
 struct AnswersView_Previews: PreviewProvider {
     static var previews: some View {
-        AnswersView(
-            answers: .init(
-                answers: [
-                    .init(
-                        id: 1,
-                        text: "Answer",
-                        is_right: true,
-                        description: "Great"
-                    ),
-                    .init(
-                        id: 2,
-                        text: "Answer2",
-                        is_right: false,
-                        description: ":("
-                    )
-                ], type: .list
-            )
-        )
+        AnswersView()
             .environmentObject(QuizViewModel())
 
-        AnswersView(
-            answers: .init(answers: .init(
-                [
-                    .init(
-                        id: 1,
-                        text: "Answer",
-                        is_right: true,
-                        description: "Great"
-                    ),
-                    .init(
-                        id: 2,
-                        text: "Answer2",
-                        is_right: false,
-                        description: ":("
-                    )
-                ]
-            ), type: .puzzle
-                          )
-        )
+        AnswersView()
+
             .environmentObject(QuizViewModel())
     }
 }
